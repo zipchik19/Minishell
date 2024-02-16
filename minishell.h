@@ -3,13 +3,13 @@
 
 # define SP 1 // spaces // dont need validation
 # define WORD 2 // words // partly done
-# define FIELD 3 // '  ' // dont need vslidation
-# define EXP_FIELD 4 // " " // not done
-# define REDIR_OUT 5 // >
-# define PIPE 6 // |
-# define REDIR_IN 7 // <
-# define REDIR_AP 8 // >>
-# define REDIR_SO 9 // <<
+# define CHAK 3 // '  ' // dont need vslidation
+# define CHAK2 4 // " " // not done
+# define MEC 5 // >
+# define POQR 6 // <
+# define PIPE 7 // |
+# define MEC2 8 // >>
+# define POQR2 9 // <<
 # define STDOUT 1
 # define STDIN 0
 
