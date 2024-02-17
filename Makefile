@@ -1,5 +1,5 @@
 NAME=minishell
-SRC = main.c
+SRC = main.c for_token1.c
 OBJ=$(SRC:src/%.c=obj/%.o) 
 CC=cc
 LIBFT=libft/libft.a

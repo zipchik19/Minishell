@@ -26,8 +26,9 @@
 # include "./libft/libft.h"
 # include <dirent.h>
 
+typedef struct s_token t_token;
 
-typedef struct s_token
+struct s_token
 {
 	int		type;
 	char	*value;
@@ -36,15 +37,10 @@ typedef struct s_token
 	int		op;/////////////////
 	t_token	*prev;
 	t_token	*next;
-} t_token;
+};
 
 
-
-
-
-
-
-
-
+int	tokenize(t_token **stream, char *str);
+void printList(t_token* head);
 
 #endif

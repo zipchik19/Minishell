@@ -1,17 +1,17 @@
-#include "minishel.h"
+#include "minishell.h"
 
-t_token *new_token(int type, char*str)
+t_token *new_tok(int type, char*str)
 {
     t_token *token;
 
     token = malloc(sizeof(t_token));
     if(!token)
         return (0);
-    t_token->value = ft_strdup(str);
+    token->value = ft_strdup(str);
     free(str);
-    t_token->type = type;
-    t_token->prev = NULL;
-    t_token->next = NULL;
+    token->type = type;
+    token->prev = NULL;
+    token->next = NULL;
 
     return(token);
 }
@@ -53,7 +53,7 @@ t_token *chakert_tok(char **str)
 	(*str) = ft_strchr(++ban, 39);
 	if (!(*str))
 	{
-		error("shyshell: \': Token error", 1);//////////////create the error func
+		//error("shyshell: \': Token error", 1);//////////////create the error func
 		return (NULL);
 	}
 	ban = ft_substr(ban, 0, (*str) - ban);
@@ -84,7 +84,7 @@ t_token *chakert2_tok(char **str)
 t_token *mec_tok(char **str)
 {
     char	*ban;
-    t_token	*new;
+    //t_token	*new;
 
 	ban = (*str);
     if (*str[0] == '>')
@@ -95,7 +95,7 @@ t_token *mec_tok(char **str)
     }
     else
     {
-        ban = ft_strdup('>');
+        ban = ft_strdup(">");
 	    return (new_tok(MEC, ban));
     }
 //////////////create the error func
@@ -105,7 +105,7 @@ t_token *mec_tok(char **str)
 t_token *poqr_tok(char **str)
 {
     char	*ban;
-    t_token	*new;
+    //t_token	*new;
 
 	ban = (*str);
     if (*str[0] == '<')
@@ -116,7 +116,7 @@ t_token *poqr_tok(char **str)
     }
     else
     {
-        ban = ft_strdup('<');
+        ban = ft_strdup("<");
 	    return (new_tok(POQR, ban));
     }
 //////////////create the error func
@@ -124,18 +124,60 @@ t_token *poqr_tok(char **str)
 }
 
 
-_token	*pipe_tok(char **str)
+t_token	*pipe_tok(char **str)
 {
 	char	*ban;
 
 	(*str)++;
 	ban = ft_strdup("|");
-	return (new_token(PIPE, ban, 0));
+	return (new_tok(PIPE, ban));
 }
 
 
+t_token	*token_type(char **str)
+{
+	t_token	*token;
 
+	token = NULL;
+	if (*str[0] == '|')
+		token = pipe_tok(str);
+	else if (*str[0] == 39)
+		token = chakert_tok(str);
+	else if (*str[0] == '>')
+		token = mec_tok(str);
+	else if (*str[0] == '<')
+		token = poqr_tok(str);
+	else if (*str[0] == 34)
+		token = chakert_tok(str);
+	else if (ft_isprint(*str[0]))
+		token = word_tok(str);
+	else if (*str[0] == ' ')
+		token = space_tok(str);
+	return (token);
+}
 
+int	tokenize(t_token **stream, char *str)
+{
+	t_token	*tmp;
+
+	tmp = NULL;
+	while (*str)
+	{
+		(*stream) = token_type(&str);
+		// if (!(*stream))
+		// {
+		// 	if (g_exit_statuss != 1)
+		// 		g_exit_statuss = 0;
+		// 	else
+		// 		return (1);
+		// 	break ;
+		// }
+		(*stream)->prev = tmp;
+		tmp = (*stream);
+		stream = &(*stream)->next;
+    }
+	return (0);
+}
 
 
 /////////NORM ERROR
