@@ -1,2 +1,2 @@
 # Minishell
-Minishell with Nare
+Minishell
