@@ -1,42 +1,37 @@
-NAME=minishell
-SRC = main.c for_token1.c
-OBJ=$(SRC:src/%.c=obj/%.o) 
-CC=cc
-LIBFT=libft/libft.a
-#CFLAGS=-Wall -Werror -Wextra -fsanitize=address -static-libsan -g
-CFLAGS=-Wall -Werror -Wextra -g
-RM=rm -rf
-INCLUDES = -Ireadline/include
-LINKERS	= -Lreadline/lib -lreadline -lhistory
-PREFIX = $(shell pwd)/readline
+NAME		= minishell
+SRCS		= $(wildcard src/*/*.c)
+#SRCS		+= $(wildcard src/*.c)
+OBJS		= $(SRCS:.c=.o)
+INCLUDES	= ./includes -I ./readlian/include
+CFLAGS		=  -Wall -Wextra -Werror #-fsanitize=address -g #-ggdb3#-lreadline  
+RD			= ${shell find ${HOME} -name readlian 2>/dev/null}
+RM			= rm -f
+CC			= cc
+LINKER		= -L./readlian/lib -lreadline
 
 all: $(NAME)
 
-obj/%.o : src/%.c obj/marker readline minishell.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+%.o : %.c readline minishel.h Makefile
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
-$(NAME) : $(OBJ) readline $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(INCLUDES) -o $(NAME) $(LINKERS)
+$(NAME) : $(OBJS)
+		@echo "\n\t\t\033[0;32mCompiling minishell"
+		$(CC) $(CFLAGS) -I $(INCLUDES) $(LINKER) $(OBJS) -o $(NAME)  -lreadline
+		@echo "\n\t\t\033[0;32mDone !"
 
-clean:
-	@make -C libft fclean
-	$(RM) obj
-	make -C readline-8.1 clean
-	rm -rf readline
+clean	:
+		@echo "\n\t\t\033[0;31mCleaning"
+		$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean	: 	clean
+			@echo "\n\t\t\033[0;31mRemoving"
+			$(RM) $(NAME)  
 
-readline:
-	cd readline-8.1  && ./configure --prefix=$(PREFIX) && make && make install
+install:
+	cd readline-master && make clean && ./configure --prefix=${RD} && make && make install
 
-$(LIBFT):
-	make -C libft
 
-obj/marker:
-	mkdir -p obj
-	touch obj/marker
 
-re: fclean all
+re		:fclean all
 
-.PHONY: re fclean clean all
+.PHONY: all clean fclean re
