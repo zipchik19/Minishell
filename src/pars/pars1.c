@@ -86,8 +86,8 @@ int	pars1(t_tokens **token, t_env **env, char **str)
 	free(tmp);
 	if (parses(str))
 		return (1);
-	//dolar
-	//dollar harcakan
+	dollar(str);
+	dollar_harc(str);
 	//tokenization
 	return (0);
 }

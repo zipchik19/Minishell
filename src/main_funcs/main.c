@@ -2,16 +2,9 @@
 
 int	g_exit_code = 0;
 
-// void	main_part4(int *in_copy, int *out_copy)
-// {
-// 	dup2(*in_copy, 0);
-// 	dup2(*out_copy, 1);
-// 	close(*out_copy);
-// }
-
 int	main2(int *in_cpy, int *out_cpy, char **str)
 {
-	sig_control(1);
+	//sig_control(1);
 	*in_cpy = dup(0);
 	*out_cpy = dup(1);
 	*str = readline ("Minishell: ");
@@ -23,16 +16,23 @@ int	main2(int *in_cpy, int *out_cpy, char **str)
 	return (0);
 }
 
-// void	main_part3(t_tokens **token, t_env **s_env)
+// void	main3(t_tokens **token, t_env **s_env)
 // {			
 // 	if (*token)
 // 	{
 // 		if ((*token)->token_count > 1)
-// 			running_pipe(token, s_env);
+// 			// running_pipe(token, s_env);
 // 		else
-// 			running(token, s_env);
+// 			// running(token, s_env);
 // 	}
 // }
+
+void	main4(int *in_cpy, int *out_cpy)
+{
+	dup2(*in_cpy, 0);
+	dup2(*out_cpy, 1);
+	close(*out_cpy);
+}
 
 int	main(int argc, char **argv, char **env)
 {
@@ -55,9 +55,9 @@ int	main(int argc, char **argv, char **env)
 		if (trim_sp(str))
 		{
 			pars1(&token, &cur_env, &str);
-			// main_part3(&token, &cur_env);
-	// 		main_part4(&in_copy, &out_copy);
-	// 		free_t_list(&token);
+		//	main3(&token, &cur_env);
+			main4(&in_cpy, &out_cpy);
+		// 	free_t_list(&token);
 		}
 		free(str);
 	}
