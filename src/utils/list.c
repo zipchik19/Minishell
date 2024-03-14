@@ -1,39 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printerrors.c                                      :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 19:47:41 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:47:43 by nbadalia         ###   ########.fr       */
+/*   Created: 2024/03/14 19:47:23 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/14 19:47:25 by nbadalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void    ft_putstr_fd(char *str, int fd)
+t_env	*ft_lstlast(t_env *lst)
 {
-    write(fd, str, ft_strlen(str));
-
+	if (lst == 0)
+		return (0);
+	while (lst -> next)
+		lst = lst->next;
+	return (lst);
 }
 
-void	putstr_fd1(char *str, int fd, int fl)
+char	*ft_strduplist( char *s1)
 {
-	write(fd, str, ft_strlen(str));
-	if (fl)
-		write(fd, "\n", 1);
+	char	*s;
+	int		l;
+
+	l = ft_strlen(s1) + 1;
+	s = (char *)malloc(l * sizeof(char));
+	ft_memcpy (s, s1, l);
+	return (s);
 }
 
-void    error_msg(char *cmd, char *str, int numb)
+void	ft_lstadd_back(t_env **lst, t_env *new)
 {
-	g_exit_code = numb;
-	ft_putstr_fd("minishell : ", 2);
-	if (cmd)
+	t_env	*node;
+
+	node = *lst;
+	if (!node)
 	{
-		ft_putstr_fd(cmd, 2);
-		ft_putstr_fd(": ", 2);
+		*lst = new;
+		return ;
 	}
-	ft_putstr_fd(str, 2);
-	ft_putstr_fd("\n", 2);
+	node = ft_lstlast(*lst);
+	node->next = new;
 }

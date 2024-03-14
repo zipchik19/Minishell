@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/14 19:42:35 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/14 19:42:37 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	g_exit_code = 0;
 
 int	main2(int *in_cpy, int *out_cpy, char **str)
 {
-	//sig_control(1);
+	sig_control(1);
 	*in_cpy = dup(0);
 	*out_cpy = dup(1);
 	*str = readline ("Minishell: ");
@@ -16,16 +28,16 @@ int	main2(int *in_cpy, int *out_cpy, char **str)
 	return (0);
 }
 
-// void	main3(t_tokens **token, t_env **s_env)
-// {			
-// 	if (*token)
-// 	{
-// 		if ((*token)->token_count > 1)
-// 			// running_pipe(token, s_env);
-// 		else
-// 			// running(token, s_env);
-// 	}
-// }
+void	main3(t_tokens **token, t_env **s_env)
+{			
+	if (*token)
+	{
+		if ((*token)->table_count > 1)
+			running_pipe(token, s_env);
+		else
+			running(token, s_env);
+	}
+}
 
 void	main4(int *in_cpy, int *out_cpy)
 {
@@ -55,7 +67,7 @@ int	main(int argc, char **argv, char **env)
 		if (trim_sp(str))
 		{
 			pars1(&token, &cur_env, &str);
-		//	main3(&token, &cur_env);
+			main3(&token, &cur_env);
 			main4(&in_cpy, &out_cpy);
 		// 	free_t_list(&token);
 		}

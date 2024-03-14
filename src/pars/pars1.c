@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pars1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/14 19:43:48 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/14 19:43:50 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	pars11(char c)
@@ -88,6 +100,6 @@ int	pars1(t_tokens **token, t_env **env, char **str)
 		return (1);
 	dollar(str);
 	dollar_harc(str);
-	//tokenization
+	tokenization(token, str);
 	return (0);
 }

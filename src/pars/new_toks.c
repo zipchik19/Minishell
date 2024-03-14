@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_toks.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/14 19:43:37 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/14 19:43:40 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 t_chakerts	*new_chakerts(int flag, char *del, char *pathname)
@@ -40,7 +52,7 @@ t_tokens	*new_tokens(char *rdl, char **cmd, int *hrd_count, int count_token)
 	new_node->head_redct->del = NULL;
 	new_node->head_redct->path = NULL;
 	new_node->head_redct->next = NULL;
-	new_node->token_count = count_token;
+	new_node->table_count = count_token;
 	new_node->next = NULL;
 	return (new_node);
 }
