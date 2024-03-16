@@ -47,6 +47,28 @@ int	ft_isdigit(char *str)
 	return (1);
 }
 
+char	*ft_cat_str1(char *s, int i, int flag)
+{
+	int		j;
+	char	*str;
+
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) - i + 2));
+	if (str == NULL)
+		return (NULL);
+	if (flag == 1)
+		str[j++] = '-';
+	else if (flag == 2)
+			str[j++] = '+';
+	while (s[i] && i < ft_strlen(s))
+		str[j++] = s[i++];
+	str[j] = '\0';
+	if (j == 0)
+		return ("0");
+	else
+		return (str);
+}
+
 char	*cat_str(char *s)
 {
 	int		i;

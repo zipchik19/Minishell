@@ -21,6 +21,23 @@ t_env	*ft_lstlast(t_env *lst)
 	return (lst);
 }
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+
+	d = (char *)dest;
+	s = (char *)src;
+	if ((dest != NULL) && (s != NULL))
+	{
+		while (n--)
+		{
+			*(d++) = *(s++);
+		}
+	}
+	return (dest);
+}
+
 char	*ft_strduplist( char *s1)
 {
 	char	*s;

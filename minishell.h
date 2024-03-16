@@ -169,6 +169,10 @@ void	signal_execve(void);
 void	processing_status(int size);
 void	call_redirections(t_tokens **tk);
 int		call_redirections_part2(t_tokens **tk, t_count *len);
+void	running_part1(t_tokens *token, t_env **l_env, t_env *env);
+void	running(t_tokens **tk, t_env **l_env);
+void	tokenization(t_tokens **token, char **str);
+
 
 
 void	free_part2(t_tokens **token);
