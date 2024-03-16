@@ -12,6 +12,23 @@
 
 #include "../../minishell.h"
 
+char	*cheack_access(char **path, char **str, char **mx_env)
+{
+	int	i;
+
+	(void)mx_env;
+	i = 0;
+	while (path[i])
+	{
+		if (access(path[i], F_OK) == 0)
+		{
+			return (path[i]);
+		}
+		i++;
+	}
+	return (str[0]);
+}
+
 void	execve_cmd2(t_env **env, char **str)
 {
 	t_env	*path;

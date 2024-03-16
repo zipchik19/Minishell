@@ -57,30 +57,3 @@ void	running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i)
 	if ((*token)->cmd && (*token)->cmd[0])
 		running_p_part1(tk, l_env, env);
 }
-
-void	processing_status_pipe(pid_t *a, int size)
-{
-	pid_t	pid;
-	int		i;
-	int		status;
-
-	i = -1;
-	status = 0;
-	while (++i < size)
-	{
-		pid = waitpid(-1, &status, 0);
-		if (pid == a[size - 1])
-		{
-			if (!WTERMSIG(status))
-				g_exit_code = WEXITSTATUS(status);
-			else
-			{
-				g_exit_code = WTERMSIG(status) + 128;
-				if (g_exit_code == 130)
-					write(1, "\n", 1);
-				else if (g_exit_code == 131)
-					putstr_fd1("Quit 3", 1, 1);
-			}
-		}
-	}
-}
