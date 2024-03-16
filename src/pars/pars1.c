@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:43:48 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:43:50 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:25:12 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	pars11(char c)
 	if (c == '|' || c == '&' || c == ';')
 	{
 		g_exit_code = 2;
-		error_msg(NULL, "syntax error ", 258);
+		error_msg(NULL, "syntax error near unexpected token `newline", 258); 
 		return (1);
 	}
 	return (0);
@@ -42,7 +42,7 @@ int	pars12(char *str)
 	}
 	if (flag == 0)
 	{
-		error_msg(NULL, "syntax error ", 258);
+		error_msg(NULL, "syntax error near unexpected token `newline", 258);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ int	pars13(char *str)
 				i++;
 			if (str[i] == '|')
 			{
-				error_msg(NULL, "syntax error ", 258);
+				error_msg(NULL, "syntax error near unexpected token `newline", 258);
 				return (1);
 			}
 		}

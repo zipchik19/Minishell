@@ -6,7 +6,7 @@
 /*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:38:02 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/16 13:55:04 by tumolabs         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:37:59 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	call_redirections(t_tokens **tk)
 	i = 1;
 	while (token)
 	{
-		len = count_redirect(&token);
+		len = count_red(&token);
 		red = token->head_redct;
 		if (call_redirections_part2(&token, len))
 			break ;

@@ -1,4 +1,4 @@
-prefix=/Users/tumolabs/Desktop/git_repo/readline
+prefix=/Users/tumolabs/Desktop/Minikos/readline
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

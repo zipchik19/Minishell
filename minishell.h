@@ -6,7 +6,7 @@
 /*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:37:15 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/16 14:05:29 by tumolabs         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:41:02 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,8 @@ int		call_redirections_part2(t_tokens **tk, t_count *len);
 void	running_part1(t_tokens *token, t_env **l_env, t_env *env);
 void	running(t_tokens **tk, t_env **l_env);
 void	tokenization(t_tokens **token, char **str);
-
+t_count	*count_red(t_tokens **tk);
+int	count_redirect_part2(t_tokens *token, t_count **count);
 
 
 void	free_part2(t_tokens **token);

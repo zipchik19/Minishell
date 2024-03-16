@@ -6,7 +6,7 @@
 /*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:42:35 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/16 15:15:45 by tumolabs         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:14:41 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,9 @@ int	main(int argc, char **argv, char **env)
 	t_env		*cur_env;
 	(void)argc;
 	(void)argv;
-	(void)**env;
 	cur_env = malloc(sizeof(t_env));
 	init_env(env, &cur_env);
 	lvlshell(&cur_env); 
-	
 	while (1)
 	{
 		if (main2(&in_cpy, &out_cpy, &str))

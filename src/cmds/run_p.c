@@ -6,7 +6,7 @@
 /*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:41:17 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/16 13:55:34 by tumolabs         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:43:58 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,26 @@ void	running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i)
 	call_redirections6((token), all_count);
 	if ((*token)->cmd && (*token)->cmd[0])
 		running_p_part1(tk, l_env, env);
+}
+
+t_count	*count_red(t_tokens **tk)
+{
+	t_count		*count;
+	t_tokens	*token;
+	t_chakerts	*red1;
+
+	token = *tk;
+	count = malloc(sizeof(t_count));
+	count->count_1 = 0;
+	count->count_3 = 0;
+	count->count_4 = 0;
+	count->count_hrd = 0;
+	red1 = token->head_redct;
+	while (token->head_redct->flag)
+	{
+		if (count_redirect_part2(token, &count))
+			break ;
+	}
+	token->head_redct = red1;
+	return (count);
 }

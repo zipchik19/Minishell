@@ -31,7 +31,7 @@ PACKAGE_TARNAME = readline
 srcdir = .
 
 top_srcdir = .
-BUILD_DIR = /Users/tumolabs/Desktop/git_repo/readline-8.1
+BUILD_DIR = /Users/tumolabs/Desktop/Minikos/readline-8.1
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -48,7 +48,7 @@ MV = mv
 
 SHELL = /bin/sh
 
-prefix = /Users/tumolabs/Desktop/git_repo/readline
+prefix = /Users/tumolabs/Desktop/Minikos/readline
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
