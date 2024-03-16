@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tables_tokenc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:43:55 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:43:57 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:33:18 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,19 @@ int	table_len(char **str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int	env_len(t_env **l_env)
+{
+	t_env	*env;
+	int		count;
+
+	count = 0;
+	env = *l_env;
+	while (env)
+	{
+		env = env->next;
+		count++;
+	}
+	return (count);
 }

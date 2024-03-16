@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   herdoc1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:39:47 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:39:48 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:16:21 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	heredoc(char *key, int i)
 	fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	while (1)
 	{
-		//sig_control(2);
+		sig_control(2);
 		hrd = readline("heredoc> ");
 		if (!hrd)
 			break ;

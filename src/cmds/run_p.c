@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_p.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:41:17 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:41:19 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:55:34 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i)
 	j = 1;
 	all_count = NULL;
 	all_count = count_redirect((token));
-	child_pr(fd, i, (*token)->token_count);
+	child_pr(fd, i, (*token)->table_count);
 	call_redirections6((token), all_count);
 	if ((*token)->cmd && (*token)->cmd[0])
 		running_p_part1(tk, l_env, env);
@@ -79,7 +79,7 @@ void	processing_status_pipe(pid_t *a, int size)
 				if (g_exit_code == 130)
 					write(1, "\n", 1);
 				else if (g_exit_code == 131)
-					ft_putstr_fd1("Quit 3", 1, 1);
+					putstr_fd1("Quit 3", 1, 1);
 			}
 		}
 	}

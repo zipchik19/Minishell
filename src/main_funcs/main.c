@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:42:35 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:42:37 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:15:45 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char **argv, char **env)
 			pars1(&token, &cur_env, &str);
 			main3(&token, &cur_env);
 			main4(&in_cpy, &out_cpy);
-		// 	free_t_list(&token);
+			free_t_list(&token);
 		}
 		free(str);
 	}

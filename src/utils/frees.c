@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:46:12 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:46:15 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:25:49 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,11 @@ void	fd_close(int (*fd)[2], int count)
 		close(fd[i][1]);
 		i++;
 	}
+}
+
+void	one_node_free(t_env **rtv)
+{
+	free((*rtv)->value);
+	free((*rtv)->key);
+	free((*rtv));
 }

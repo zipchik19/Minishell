@@ -21,7 +21,7 @@ RL_LIBRARY_VERSION = 8.1
 SHELL = /bin/sh
 RM = rm -f
 
-prefix = /Users/tumolabs/Desktop/git_repo/readline
+prefix = /Users/tumolabs/Desktop/git_repo1/readline
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
@@ -32,7 +32,7 @@ datadir = ${datarootdir}
 
 top_srcdir = ..
 #BUILD_DIR = .
-BUILD_DIR = /Users/tumolabs/Desktop/git_repo/readline-8.1
+BUILD_DIR = /Users/tumolabs/Desktop/git_repo1/readline-8.1
 installdir = $(datadir)/readline
 
 INSTALL = /usr/bin/install -c

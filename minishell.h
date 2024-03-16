@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:37:15 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:37:17 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 14:05:29 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h> 
 # include <unistd.h>
-# include <readline/readline.h>
+# include <./readline/readline.h>
 # include <readline/history.h>
 # include <signal.h>
 # include <string.h>
@@ -139,18 +139,42 @@ void	cd_cmd(t_env **l_env, char **str);
 void	echo_cmd(char **str);
 void	unset_cmd(t_env **l_env, char *new_key);
 void	execve_cmd2(t_env **env, char **str);
-void	processing_status_pipe(pid_t *a, int size);
+void	execve_cmd(t_env **env, char **str);
 void	redirection_output_append(char *file, int i);
 void	update_oldpwd(t_env **l_env);
 void	ft_lstadd_back(t_env **lst, t_env *new);
 char	*ft_strduplist( char *s1);
 t_env	*ft_lstlast(t_env *lst);
 void	update_pwd(t_env **l_env);
+int		export_pars(char *str);
+int		find_key(t_env **l_env, char *new_key);
+int		echo_cmd_1(char *str, int *flag);
+void	echo_cmd_2(char **str, int i);
+void	echo_cmd_3(char **str, int i);
+void	create_the_paths(char **splited_path, char *new_str);
+char	**t_env_to_matrix(t_env **env);
+char	*cheack_access(char **path, char **str, char **mx_env);
+void	ft_execv(char *new_str, char **mx_env, char **str);
+int		env_len(t_env **l_env);
+char	**split_export(char *str);
+int		if_key_already_exist(t_env **l_env, char **splited);
+void	key_not_exist(char **splited, t_env *env, int i, int len);
+void	export_print(char *str, int z);
+int		if_need_to_add(t_env **l_env, char **splited);
+void	already_exist(char **splited, t_env *rtv);
+void	need_to_add(t_env **l_env, char **splited, t_env *rtv, char *tmp);
+int	exit_cmd(char **c);
+void	ft_execve_cmd_2(char **splited_path, char **str, t_env **env, char *new_str);
+void	signal_execve(void);
+void	processing_status(int size);
+void	call_redirections(t_tokens **tk);
+int		call_redirections_part2(t_tokens **tk, t_count *len);
 
 
-void	free_t_list(t_tokens **token);
 void	free_part2(t_tokens **token);
-
+void	free_t_list(t_tokens **token);
+void	one_node_free(t_env **rtv);
+void	matrix_free(char **env_split);
 
 //libft utils
 char	**ft_split(char *s, char c);
@@ -168,5 +192,6 @@ char	*ft_strjoin2(char *s1, char *s2);
 void	*ft_calloc(size_t count, size_t size);
 char	*cat_str(char *s);
 int		ft_isdigit(char *str);
+int	ft_int_strchr(char *str, char c);
 
 #endif

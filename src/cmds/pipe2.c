@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:40:19 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:40:20 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:44:02 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	call_heredoc(t_tokens **tk, int len)
 int	count_all_part2(t_tokens *token, t_count *count)
 {
 	if (token->head_redct->flag == 2)
-		count->count_herdoc++;
+		count->count_hrd++;
 	if (token->head_redct->next)
 		token->head_redct = token->head_redct->next;
 	else

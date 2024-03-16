@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_utils6.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:47:15 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:47:16 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:36:08 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,24 @@ char	*cat_str(char *s)
 	while (s[i] == '0')
 	i++;
 	return (ft_cat_str1(s, i, flag));
+}
+
+int	ft_int_strchr(char *str, char c)
+{
+	unsigned int	i;
+	unsigned char	*s;
+	int				len;
+
+	s = (unsigned char *) str;
+	len = ft_strlen(str);
+	i = 0;
+	if (c == 0)
+		return (len);
+	while (s[i])
+	{
+		if (s[i] == (unsigned char)c)
+			return (i);
+		i++;
+	}
+	return (0);
 }

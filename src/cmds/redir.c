@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:41:09 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/14 19:41:11 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:44:02 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	count_redirect_part2(t_tokens *token, t_count **count)
 	if (token->head_redct->flag == 1)
 		(*count)->count_1++;
 	if (token->head_redct->flag == 2)
-		(*count)->count_herdoc++;
+		(*count)->count_hrd++;
 	if (token->head_redct->flag == 3)
 		(*count)->count_3++;
 	if (token->head_redct->flag == 4)
@@ -52,7 +52,7 @@ t_count	*count_redirect(t_tokens **tk)
 	count->count_1 = 0;
 	count->count_3 = 0;
 	count->count_4 = 0;
-	count->count_herdoc = 0;
+	count->count_hrd = 0;
 	red1 = token->head_redct;
 	while (token->head_redct->flag)
 	{

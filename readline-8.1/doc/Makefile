@@ -22,7 +22,7 @@ topdir = ..
 srcdir = .
 
 
-prefix = /Users/tumolabs/Desktop/git_repo/readline
+prefix = /Users/tumolabs/Desktop/git_repo1/readline
 
 datarootdir = ${prefix}/share
 
@@ -49,7 +49,7 @@ RM = rm -f
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 
-BUILD_DIR = /Users/tumolabs/Desktop/git_repo/readline-8.1
+BUILD_DIR = /Users/tumolabs/Desktop/git_repo1/readline-8.1
 TEXINPUTDIR = $(srcdir)
 
 MAKEINFO    = LANGUAGE= makeinfo
