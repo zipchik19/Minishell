@@ -12,10 +12,9 @@
 
 #include "../../minishell.h"
 
-void    ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
-    write(fd, str, ft_strlen(str));
-
+	write(fd, str, ft_strlen(str));
 }
 
 void	putstr_fd1(char *str, int fd, int fl)
@@ -25,7 +24,7 @@ void	putstr_fd1(char *str, int fd, int fl)
 		write(fd, "\n", 1);
 }
 
-void    error_msg(char *cmd, char *str, int numb)
+void	error_msg(char *cmd, char *str, int numb)
 {
 	g_exit_code = numb;
 	ft_putstr_fd("minishell : ", 2);

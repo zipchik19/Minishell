@@ -41,12 +41,10 @@ void	dollar2(char **str, int i, int j)
 {
 	char	*word;
 	char	*back;
-	// int		len;///////////////animast, ankap
 
 	word = ft_substr(*str, j, i - j);
 	back = getenv(word);
 	*str = dollar_join(*str, back, j, i - j + 1);
-	// len = ft_strlen(str[0]);
 	free(word);
 }
 

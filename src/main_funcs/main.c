@@ -29,7 +29,7 @@ int	main2(int *in_cpy, int *out_cpy, char **str)
 }
 
 void	main3(t_tokens **token, t_env **s_env)
-{			
+{
 	if (*token)
 	{
 		if ((*token)->table_count > 1)
@@ -53,11 +53,12 @@ int	main(int argc, char **argv, char **env)
 	int			out_cpy;
 	t_tokens	*token;
 	t_env		*cur_env;
+
 	(void)argc;
 	(void)argv;
 	cur_env = malloc(sizeof(t_env));
 	init_env(env, &cur_env);
-	lvlshell(&cur_env); 
+	lvlshell(&cur_env);
 	while (1)
 	{
 		if (main2(&in_cpy, &out_cpy, &str))

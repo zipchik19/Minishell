@@ -63,7 +63,7 @@ int	count_all_part2(t_tokens *token, t_count *count)
 }
 
 t_count	*count_all(t_tokens **tok)
-{	
+{
 	t_count		*count;
 	t_tokens	*token;
 	t_chakerts	*red1;
@@ -76,7 +76,7 @@ t_count	*count_all(t_tokens **tok)
 	count->count_hrd = 0;
 	while (token)
 	{
-	red1 = token->head_redct;
+		red1 = token->head_redct;
 		while (token->head_redct->flag)
 		{
 			if (count_all_part2(token, count))

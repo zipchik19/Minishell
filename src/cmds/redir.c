@@ -42,7 +42,7 @@ int	count_redirect_part2(t_tokens *token, t_count **count)
 }
 
 t_count	*count_redirect(t_tokens **tk)
-{	
+{
 	t_count		*count;
 	t_tokens	*token;
 	t_chakerts	*red1;

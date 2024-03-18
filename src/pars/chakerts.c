@@ -12,7 +12,7 @@
 
 #include "../../minishell.h"
 
-int chakerts_end(char *str, int i)
+int	chakerts_end(char *str, int i)
 {
 	i++;
 	while (str[i] && str[i] != '\'' )
@@ -20,8 +20,8 @@ int chakerts_end(char *str, int i)
 	return (i);
 }
 
-int double_chakerts_end(char *str, int i)
-{	
+int	double_chakerts_end(char *str, int i)
+{
 	i++;
 	while (str[i] && str[i] != '\"')
 		i++;

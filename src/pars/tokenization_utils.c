@@ -19,14 +19,14 @@ int	sub1(char *line, int i, t_tokens **queue)
 	j = 0;
 	i += 2;
 	while (line[i] && line[i] == ' ')
-	i++;
+		i++;
 	j = i;
 	if (line[i] == '\'')
-	i = chakerts_end(line, i);
+		i = chakerts_end(line, i);
 	else if (line[i] == '\"')
-	i = double_chakerts_end(line, i);
+		i = double_chakerts_end(line, i);
 	while (line[i] && line[i] != ' ')
-	i++;
+		i++;
 	fill_chakerts(queue, 2, ignore_chak(ft_substr(line, j, i - j)));
 	return (i);
 }
@@ -38,14 +38,14 @@ int	sub2(char *line, int i, t_tokens **queue)
 	j = 0;
 	i += 2;
 	while (line[i] && line[i] == ' ')
-	i++;
+		i++;
 	if (line[i] == '\'')
-	i = chakerts_end(line, i);
+		i = chakerts_end(line, i);
 	else if (line[i] == '\"')
-	i = double_chakerts_end(line, i);
+		i = double_chakerts_end(line, i);
 	j = i;
 	while (line[i] && line[i] != ' ')
-	i++;
+		i++;
 	fill_chakerts(queue, 4, ignore_chak(ft_substr(line, j, i - j)));
 	return (i);
 }
@@ -76,10 +76,10 @@ int	sub4(char *line, int i, t_tokens **queue)
 	j = 0;
 	i += 1;
 	while (line[i] && line[i] == ' ')
-	i++;
+		i++;
 	j = i;
 	while (line[i] && line[i] != ' ')
-	i++;
+		i++;
 	fill_chakerts(queue, 1, ignore_chak(ft_substr(line, j, i - j)));
 	return (i);
 }
@@ -95,9 +95,9 @@ int	sub5(char *line, int i, char	**tmp)
 	while (line[i] != '<' && line[i] != '>' && line[i] != '\0')
 	{
 		if (line[i] == '\'')
-		i = chakerts_end(line, i);
+			i = chakerts_end(line, i);
 		else if (line[i] == '\"')
-		i = double_chakerts_end(line, i);
+			i = double_chakerts_end(line, i);
 		i++;
 	}
 	ptr = ft_substr(line, j, i - j);

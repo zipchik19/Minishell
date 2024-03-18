@@ -48,8 +48,6 @@ void	fill_chakerts(t_tokens **token, int flag, char *str)
 	}
 }
 
-
-
 void	tokens_add_back(t_tokens **head, t_tokens *new)
 {
 	t_tokens	*node;
@@ -71,7 +69,8 @@ void	fill_tokens(t_tokens **token, char **tokenized,
 	i = 0;
 	while (tokenized && tokenized[i])
 	{
-		tokens_add_back(token, new_tokens(tokenized[i], NULL, hrd_c, count_tok));
+		tokens_add_back(token, new_tokens(tokenized[i], \
+		NULL, hrd_c, count_tok));
 		i++;
 	}
 }

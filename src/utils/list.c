@@ -31,9 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	if ((dest != NULL) && (s != NULL))
 	{
 		while (n--)
-		{
 			*(d++) = *(s++);
-		}
 	}
 	return (dest);
 }

@@ -13,24 +13,23 @@
 #include "../../minishell.h"
 #include <readline/readline.h>
 
-void sigint_handler(int sig)
+void	sigint_handler(int sig)
 {
-    if (sig == SIGINT)
-    {
-        g_exit_code = 1;
-        rl_replace_line("", 0);
-        rl_on_new_line();
-    }
+	if (sig == SIGINT)
+	{
+		g_exit_code = 1;
+		rl_replace_line("", 0);
+		rl_on_new_line();
+	}
 }
 
-void sig_handler_hdoc(int sig)
+void	sig_handler_hdoc(int sig)
 {
-    (void)sig;
-    g_exit_code = -14;
-    rl_replace_line("", 0);
-    rl_on_new_line();
+	(void)sig;
+	g_exit_code = -14;
+	rl_replace_line("", 0);
+	rl_on_new_line();
 }
-
 
 void	init_term(void)
 {

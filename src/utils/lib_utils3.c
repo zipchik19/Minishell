@@ -49,7 +49,7 @@ int	str_len(int n)
 }
 
 char	*ft_itoa(int n)
-{	
+{
 	char		*s;
 	size_t		len;
 	long int	numb;

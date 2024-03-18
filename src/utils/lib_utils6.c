@@ -13,7 +13,7 @@
 #include "../../minishell.h"
 
 void	*ft_calloc(size_t count, size_t size)
-{	
+{
 	size_t	i;
 	void	*ptr;
 
@@ -59,7 +59,7 @@ char	*ft_cat_str1(char *s, int i, int flag)
 	if (flag == 1)
 		str[j++] = '-';
 	else if (flag == 2)
-			str[j++] = '+';
+		str[j++] = '+';
 	while (s[i] && i < ft_strlen(s))
 		str[j++] = s[i++];
 	str[j] = '\0';
@@ -87,7 +87,7 @@ char	*cat_str(char *s)
 		flag = 2;
 	}
 	while (s[i] == '0')
-	i++;
+		i++;
 	return (ft_cat_str1(s, i, flag));
 }
 

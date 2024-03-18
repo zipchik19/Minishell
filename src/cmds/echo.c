@@ -48,7 +48,7 @@ void	echo_cmd(char **str)
 		while (str[i])
 		{
 			printf("%s ", str[i]);
-				i++;
+			i++;
 		}
 	}
 	else if (ft_strcmp(str[1], "-n"))

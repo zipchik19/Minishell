@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 15:54:47 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/18 15:54:49 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	echo_cmd_1(char *str, int *flag)
@@ -14,7 +26,7 @@ int	echo_cmd_1(char *str, int *flag)
 		{
 			*flag = 1;
 			break ;
-		}	
+		}
 		if (i != 2)
 			*flag = 0;
 	}
@@ -32,7 +44,7 @@ void	echo_cmd_2(char **str, int i)
 		while (str[i] && str[i + 1])
 		{
 			printf("%s ", str[i]);
-				i++;
+			i++;
 		}
 		printf("%s", str[i]);
 	}

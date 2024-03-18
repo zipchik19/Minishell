@@ -33,7 +33,7 @@ int	split1(int start, char *str, char c, int i)
 			start = double_chakerts_end(str, i);
 		if (str[start] && str[start] == '\'')
 			start = chakerts_end(str, i);
-			start++;
+		start++;
 	}
 	return (start);
 }

@@ -17,7 +17,7 @@ int	pars11(char c)
 	if (c == '|' || c == '&' || c == ';')
 	{
 		g_exit_code = 2;
-		error_msg(NULL, "syntax error near unexpected token `newline", 258); 
+		error_msg(NULL, "syntax error near unexpected token `newline", 258);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,8 @@ int	pars13(char *str)
 				i++;
 			if (str[i] == '|')
 			{
-				error_msg(NULL, "syntax error near unexpected token `newline", 258);
+				error_msg(NULL, \
+				"syntax error near unexpected token `newline", 258);
 				return (1);
 			}
 		}
@@ -75,15 +76,15 @@ int	pars13(char *str)
 	return (0);
 }
 
-int parses(char **str)
+int	parses(char **str)
 {
-    if (pars11(*str[0]))
-        return (1);
-    if (pars12(*str))
-        return (1);
-    if (pars13(*str))
-        return (1);
-    return (0);    
+	if (pars11(*str[0]))
+		return (1);
+	if (pars12(*str))
+		return (1);
+	if (pars13(*str))
+		return (1);
+	return (0);
 }
 
 int	pars1(t_tokens **token, t_env **env, char **str)

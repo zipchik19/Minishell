@@ -39,8 +39,8 @@ int	ft_strcmp2(char *str, char *cmd, int len)
 				return (1);
 		}
 		if (j == 0)
-				flag = 1;
-			j = 0;
+			flag = 1;
+		j = 0;
 		if (flag)
 		{
 			i++;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_split.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 15:55:12 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/18 15:55:14 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 char	**split_export(char *str)
@@ -21,9 +33,9 @@ char	**split_export(char *str)
 	{
 		if (i && i == len - 1)
 			len = len - 1;
-			ptr = (char **)malloc (sizeof(char *) * (2));
-			ptr[0] = ft_substr(str, 0, len);
-			ptr[1] = 0;
+		ptr = (char **)malloc (sizeof(char *) * (2));
+		ptr[0] = ft_substr(str, 0, len);
+		ptr[1] = 0;
 	}
 	return (ptr);
 }

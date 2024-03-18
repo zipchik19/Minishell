@@ -46,14 +46,13 @@ int	check_longlongd2(char *str)
 		{
 			if (i == 19)
 				return (1);
-				i++;
+			i++;
 		}
 		else if (str[i] > max[i])
 			return (0);
 	}
 	return (0);
 }
-
 
 int	check_longlongd1(char *str)
 {
@@ -68,7 +67,7 @@ int	check_longlongd1(char *str)
 		{
 			if (i == 19)
 				return (1);
-				i++;
+			i++;
 		}
 		else if (str[i] > min[i])
 			return (0);

@@ -62,12 +62,12 @@ void	processing_status(int size)
 	status = 0;
 	while (++i < size)
 	{
-	pid = waitpid(-1, &status, 0);
+		pid = waitpid(-1, &status, 0);
 		if (!WTERMSIG(status))
 			g_exit_code = WEXITSTATUS(status);
 		else
 		{
-		g_exit_code = WTERMSIG(status) + 128;
+			g_exit_code = WTERMSIG(status) + 128;
 			if (g_exit_code == 130)
 				write(1, "\n", 1);
 			else if (g_exit_code == 131)

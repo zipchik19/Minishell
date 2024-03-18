@@ -13,7 +13,7 @@
 #include "../../minishell.h"
 
 int	call_redirections_part2(t_tokens **tk, t_count *len)
-{	
+{
 	t_chakerts	*red;
 	t_tokens	*token;
 
@@ -62,7 +62,7 @@ void	do_the_job(t_chakerts *token, t_count *len)
 		else
 			redirection_output_append(token->del, 0);
 		len->count_4--;
-	}	
+	}
 }
 
 void	call_redirections6(t_tokens **tk, t_count *len)
@@ -105,7 +105,7 @@ void	call_redirections(t_tokens **tk)
 			break ;
 		token->head_redct = red;
 		if (token->next)
-		token = token->next;
+			token = token->next;
 		else
 		{
 			free(len);

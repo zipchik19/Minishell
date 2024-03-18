@@ -22,7 +22,7 @@ void	sub_general(char *line, t_tokens **queue)
 	while (line[i])
 	{
 		while (line[i] && line[i] == ' ')
-		i++;
+			i++;
 		if (line[i] && line[i + 1] && line[i] == '<' && line[i + 1] == '<')
 			i = sub1(line, i, queue);
 		else if (line[i] && line[i + 1] && line[i] == '>' && line[i + 1] == '>')

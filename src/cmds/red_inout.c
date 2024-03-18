@@ -40,7 +40,7 @@ void	redirection_output(char *file, int i)
 	}
 	else
 	{
-	fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+		fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 		if (i)
 		{
 			dup2(fd, 1);
