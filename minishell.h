@@ -1,23 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 19:37:15 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/16 16:41:02 by tumolabs         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include "utils.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h> 
 # include <unistd.h>
-# include <./readline/readline.h>
+# include <readline/readline.h>
 # include <readline/history.h>
 # include <signal.h>
 # include <string.h>
@@ -34,20 +23,20 @@ typedef struct s_count		t_count;
 
 struct	s_count
 {
-	int	count_hrd;
+	int	count_herdoc;
 	int	count_1;
 	int	count_3;
 	int	count_4;
 };
 
-typedef struct s_chakerts	t_chakerts;
+typedef struct s_redirects	t_redirects;
 
-struct	s_chakerts
+struct	s_redirects
 {
 	int					flag;
-	char				*path;
+	char				*pathname;
 	char				*del;
-	struct s_chakerts	*next;
+	struct s_redirects	*next;
 };
 
 typedef struct s_tokens		t_tokens;
@@ -57,10 +46,10 @@ struct s_tokens
 	char		*rdl;
 	char		**cmd;
 	int			*hrd_count;
-	int			table_count;
-	int			in_cpy;
-	int			out_cpy;
-	t_chakerts	*head_redct;
+	int			token_count;
+	int			in_copy;
+	int			out_copy;
+	t_redirects	*head_redct;
 	t_tokens	*next;
 };
 
@@ -74,125 +63,138 @@ struct	s_env
 	t_env	*next;
 };
 
-t_chakerts	*new_chakerts(int flag, char *del, char *pathname);
-t_tokens	*ft_lstlastt(t_tokens *lst);
-t_env		*get_env(t_env **l_env, char *new_key);
-void		sig_control(int a);
-void		init_env(char **env, t_env **cur_env);
-void		lvlshell(t_env **env);
-void		ctrl_d(char *str);
-int			trim_sp(char *str);
-int			pars1(t_tokens **token, t_env **env, char **str);
-int			chakerts_end(char *str, int i);
-int			double_chakerts_end(char *str, int i);
-void		error_msg(char *cmd, char *str, int numb);
-int			check(int i, char *str, int *flag);
-void		dollar(char **str);
-void		dollar_harc(char **str);
-void		*str_free(char **str, size_t i);
-int			table_len(char **str);
-int			check_error(char **tokenized, char *str);
-char		**new_split(char *str, char c);
-int			sub1(char *line, int i, t_tokens **queue);
-int			sub2(char *line, int i, t_tokens **queue);
-int			sub3(char *line, int i, t_tokens **queue);
-int			sub4(char *line, int i, t_tokens **queue);
-int			sub5(char *line, int i, char	**tmp);
-char		*ignore_chak(char *str);
-void		chakerts_add_back(t_chakerts **head, t_chakerts *new_node);
-void		ignoring(t_tokens **token);
-void		very_new_split(t_tokens **token);
-t_tokens	*new_tokens(char *rdl, char **cmd, int *hrd_count, int count_token);
-void		fill_chakerts(t_tokens **token, int flag, char *str);
-//utils
-int			till_spaces(char *str, int i);
-void		chakerts_add_back(t_chakerts **head, t_chakerts *new_node);
-void		running_pipe(t_tokens **token, t_env **env);
-void		func_red(t_tokens **token);
-void		call_heredoc(t_tokens **tk, int len);
-t_count		*count_all(t_tokens **tk);
-void		pipe_call(int (*fd)[2], int count);
-void		closee(int (*fd)[2], int count);
-void		putstr_fd1(char *s, int fd, int fl);
-void		run_p(pid_t *child, t_tokens **token, t_env **env, int (*fd)[2]);
-void		processing_status_pipe(pid_t *a, int size);
-void		exit2(char *str);
-int			check_longlongd(char *str);
-void		pwd_cmd(t_env **l_env);
 void		env_cmd(t_env *env);
-void		ft_putstr_fd(char *str, int fd);
-void		heredoc(char *key, int i);
-int			status_check(char *file, char *s);
-void		running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i);
-t_count		*count_redirect(t_tokens **tk);
-void		child_pr(int (*fd)[2], int i, int count);
-void		fd_close(int (*fd)[2], int count);
-void		do_the_job(t_chakerts *token, t_count *len);
-void		call_redirections6(t_tokens **tk, t_count *len);
-void		redirection_input(char *file, int i);
-void		redirection_output(char *file, int i);
-void		only_export(t_env **node);
-void		export_cmd(t_env **l_env, char *str);
-void		cd_cmd(t_env **l_env, char **str);
 void		echo_cmd(char **str);
-void		unset_cmd(t_env **l_env, char *new_key);
-void		execve_cmd2(t_env **env, char **str);
-void		execve_cmd(t_env **env, char **str);
-void		redirection_output_append(char *file, int i);
-void		update_oldpwd(t_env **l_env);
-void		ft_lstadd_back(t_env **lst, t_env *new);
-char		*ft_strduplist( char *s1);
-t_env		*ft_lstlast(t_env *lst);
-void		update_pwd(t_env **l_env);
-int			export_pars(char *str);
-int			find_key(t_env **l_env, char *new_key);
 int			echo_cmd_1(char *str, int *flag);
 void		echo_cmd_2(char **str, int i);
+void		echo_cmd_2(char **str, int i);
 void		echo_cmd_3(char **str, int i);
-void		create_the_paths(char **splited_path, char *new_str);
-char		**t_env_to_matrix(t_env **env);
-char		*cheack_access(char **path, char **str, char **mx_env);
-void		ft_execv(char *new_str, char **mx_env, char **str);
-int			env_len(t_env **l_env);
-char		**split_export(char *str);
-int			if_key_already_exist(t_env **l_env, char **splited);
-void		key_not_exist(char **splited, t_env *env, int i, int len);
-void		export_print(char *str, int z);
-int			if_need_to_add(t_env **l_env, char **splited);
-void		already_exist(char **splited, t_env *rtv);
-void		need_to_add(t_env **l_env, char **splited, t_env *rtv, char *tmp);
+void		pwd_cmd(t_env **t_env);
+void		only_export(t_env **node);
+void		export_no_args(t_env **env);
+void		cd_cmd(t_env **l_env, char **str);
+void		unset_cmd(t_env **l_env, char *key);
+void		export_cmd(t_env **l_env, char *str);
+void		execve_cmd(t_env **env, char **str);
+void		execve_cmd2(t_env **env, char **str);
 int			exit_cmd(char **c);
-void		ft_execve_cmd_2(char **splited_path, char **str, \
-			t_env **env, char *new_str);
-void		signal_execve(void);
-void		processing_status(int size);
-void		call_redirections(t_tokens **tk);
-int			call_redirections_part2(t_tokens **tk, t_count *len);
-void		running_part1(t_tokens *token, t_env **l_env, t_env *env);
-void		running(t_tokens **tk, t_env **l_env);
-void		tokenization(t_tokens **token, char **str);
-t_count		*count_red(t_tokens **tk);
-int			count_redirect_part2(t_tokens *token, t_count **count);
-void		free_part2(t_tokens **token);
+void		exit_2(char *str);
+int			check_longlongd(char *str);
+int			check_longlongd1(char *str);
+int			check_longlongd2(char *str);
+int			check_longlongd3(char *str);
+
+void		redirection_output(char *file, int i);
+void		redirection_output_append(char *file, int i);
+void		redirection_input(char *file, int i);
+void		heredoc(char *key, int i);
+void		heredoc_part2(int i, int fd, char *file);
+int			status_check(char *file, char *s);
+
+int			sp_sp(char *str);
+int			gen_parsing(t_tokens **token, t_env **env, char **str);
+void		parsing_part_1(char *str, t_tokens **token);
+char		*join_dolar_str(char *str, char *world, int x, int z);
+int			export_pars(char *str);
+int			pre_parsing(char *str);
+int			syntax_pars_2(char *str);
+int			syntax_pars_3(char *str);
+void		dolar_pars(char **str);
+void		dollar_harcakan(void);
+int			go_until_spasce(char *str, int i);
+char		*join_dolar_str(char *str, char *world, int x, int z);
+
+void		ft_signal_handling(int sig);
+void		handleterm(int s);
+void		handle_ctrl_d(int sig);
+void		sig_handler_hdoc(int sig);
+void		sigint_handler(int sig);
+void		handler(int sig);
+void		ctrl_d_check(char *s);
+void		sig_control(int a);
+
+t_env		*ft_lstlast(t_env *lst);
+void		ft_lstadd_back(t_env **lst, t_env *new);
+t_redirects	*new_t_redirects(int flag, char *del, char *pathname);
+void		t_redirects_add_back(t_redirects **head, t_redirects *new_node);
+t_redirects	*new_t_redirects(int flag, char *del, char *pathname);
+void		t_redirects_add_back(t_redirects **head, t_redirects *new_node);
 void		free_t_list(t_tokens **token);
 void		one_node_free(t_env **rtv);
-void		matrix_free(char **env_split);
-//libft utils
-char		**ft_split(char *s, char c);
-int			ft_strlen(char *str);
-int			ft_strcmp(char *str, char *cmd);
-int			ft_strcmp1(char *s1, char *s2);
-int			ft_atoi(const char *str);
-char		*ft_itoa(int n);
-char		*ft_strtrim(char *s1, char *set);
-char		*ft_strchr(char *s, int c);
-char		*ft_strjoin(char *s1, char *s2);
-char		*ft_substr(char *s, int start, int len);
-int			ft_strcharcmp(char *str, char c);
-char		*ft_strjoin2(char *s1, char *s2);
-void		*ft_calloc(size_t count, size_t size);
-char		*cat_str(char *s);
-int			ft_isdigit(char *str);
-int			ft_int_strchr(char *str, char c);
+t_tokens	*new_t_tokens(char *rdl, char **cmd,
+				int *hrd_count, int count_token);
+
+int			env_len(t_env **l_env);
+void		env_init(char **env, t_env **s_env);
+void		shell_level(t_env **env);
+int			find_key(t_env **l_env, char *new_key);
+int			if_key_already_exist(t_env **l_env, char **splited);
+void		already_exist(char **splited, t_env *rtv);
+void		need_to_add(t_env **l_env, char **splited, t_env *rtv, char *tmp);
+int			if_need_to_add(t_env **l_env, char **splited);
+t_env		*get_env(t_env **l_env, char *new_key);
+void		initializer(t_tokens **token);
+void		interrogatory(char **str);
+void		tokenization(t_tokens **token, char **str );
+int			matrix_len(char **str);
+int			check_error(char **tokenized, char *str);
+void		ftft(t_tokens **token);
+void		ft_fill_red(t_tokens **token, int flag, char *str);
+t_tokens	*ft_lstlast1(t_tokens *lst);
+
+t_count		*count_all(t_tokens **tk);
+t_count		*count_red(t_tokens **tk);
+t_count		*count_redirect(t_tokens **tk);
+int			ft_count_tokens(char **token);
+int			ft_count_pipe(char *str);
+
+void		running_pipe(t_tokens **token, t_env **env);
+void		ft_pipe_call(int (*fd)[2], int count);
+void		func_red(t_tokens **token);
+void		call_heredoc(t_tokens **tk, int len);
+void		run_p(pid_t *child, t_tokens **token, t_env **env, int (*fd)[2]);
+void		running_p(t_tokens **tk, t_env **l_env, int (*fd)[2], int i);
+void		running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i);
+void		child_pr(int (*fd)[2], int i, int count);
+void		call_redirections6(t_tokens **tk, t_count *len);
+void		running_p_part1(t_tokens *token, t_env **l_env, t_env *env);
+void		fd_close(int (*fd)[2], int count);
+void		processing_status_pipe( pid_t *a, int size);
+
+void		running(t_tokens **token, t_env **l_env);
+void		call_redirections(t_tokens **tk);
+void		processing_status(int size);
+
+int			check(int i, char *str, int *flg);
+int			cheack_back(char *str, int x);
+int			cheack_front(char *str, int *x);
+int			check_cmd( t_tokens **token, int i);
+int			check_herdoc( t_tokens **token, int i);
+int			check_redirect( t_tokens **token, int i);
+
+void		print_error(char *cmd, char *str, int code);
+int			execve_print(char *str, int z);
+void		child_error(int i, pid_t *child);
+
+int			find_end_of_double_quote(char *str, int i);
+int			find_end_of_single_quote(char *str, int i);
+
+void		ft_execv(char *new_str, char **mx_env, char **str);
+char		*cheack_access(char **path, char **str, char **mx_env);
+char		**t_env_to_matrix(t_env **env);
+void		create_the_paths(char **splited_path, char *new_str);
+
+int			ft_strcmp_part2(char *str, char *cmd, int len);
+char		**smart_split1(char *s, char c);
+void		smart_smart_split(t_tokens **token);
+int			smart_split_part1(int start, char *s, char c, int i);
+int			smart_split_part2(int end, char *s, char c );
+void		ft_smart_sub(char *rdl, t_tokens **hert);
+int			ft_smart_sub_part1(char *rdl, int i, t_tokens **hert);
+int			ft_smart_sub_part2(char *rdl, int i, t_tokens **hert);
+int			ft_smart_sub_part3(char *rdl, int i, t_tokens **hert);
+int			ft_smart_sub_part4(char *rdl, int i, t_tokens **hert);
+int			ft_smart_sub_part5(char *rdl, int i, char	**tmp);
+void		do_the_job(t_redirects *token, t_count *len);
 
 #endif

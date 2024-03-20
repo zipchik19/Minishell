@@ -1,4 +1,4 @@
-prefix=/Users/nbadalia/Desktop/git_repo/readline
+prefix=/Users/nbadalia/Desktop/minihell_new/readline
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
