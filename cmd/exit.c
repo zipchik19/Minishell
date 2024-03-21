@@ -6,12 +6,13 @@ int check_nums(char *c)
 
 	nb = ft_atoi(c);
 	if(ft_strcmp(c, "-9223372036854775808"))
-		return(0);
+		return(1);
 	else if(ft_atoi(c) < 0)
 		nb = -1 * ft_atoi(c);
-	if (nb < 9223372036854775807)
+	if (nb <= 9223372036854775807)
 		return(1);
-	return(0);
+	else 
+		return(0);
 
 }
 
@@ -28,10 +29,11 @@ int	exit_cmd(char **c)
 	if(ft_atoi(c[1]) < 0)
 		nb = -1 * ft_atoi(c[1]);
 	nb = ft_atoi(c[1]);
-	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || check_nums(c[1]))
+	//printf("%d\n", check_nums("9223372036854775807135813514351"));
+	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || (c[2] && check_nums(c[1])))
 	{
 		printf("exit\n");
-		print_error_exit("exit", c[1], " numeric argument required", 255);
+		print_error_exit("exit", c[1], "numeric argument required", 255);
 		exit(255);
 	}
 	if (c[2] && ft_isdigit(c[1]))
