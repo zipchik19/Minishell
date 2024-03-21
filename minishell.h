@@ -217,4 +217,6 @@ int			sub_sub_part4(char *rdl, int i, t_toks **hert);
 int			sub_sub_part5(char *rdl, int i, char	**tmp);
 void		do_the_job(t_redirs *token, t_count *len);
 void		print_error_exit(char *cmd,char *val, char *str, int code);
+unsigned long long	ft_atoi2(const char *str);
+
 #endif

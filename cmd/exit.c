@@ -3,16 +3,20 @@
 int	exit_cmd(char **c)
 {
 	char		*str;
+	unsigned long long nb;
 
 	if (!c[1])
 	{
 		printf("exit\n");
 		exit(0);
 	}
-	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])))
+	if(ft_atoi(c[1]) < 0)
+		nb = (-1 * ft_atoi(c[1])) - 1;
+	nb = ft_atoi(c[1]);
+	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || (nb > 9223372036854775807))
 	{
 		printf("exit\n");/////////////////////
-		print_error_exit("exit", c[1], "numeric argument required", 255);
+		print_error_exit("exit", c[1], " numeric argument required", 255);
 		exit(255);
 	}
 	if (c[2] && ft_isdigit(c[1]))
@@ -25,7 +29,6 @@ int	exit_cmd(char **c)
 	exit_2(str);
 	return (0);
 }
-
 void	exit_2(char *str)
 {
 	long long	num;
