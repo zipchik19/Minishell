@@ -24,11 +24,11 @@ void	processing_status(int size)
 	}
 }
 
-void	running_pipe(t_tokens **token, t_env **env)
+void	running_pipe(t_toks **token, t_env **env)
 {
 	int			(*fd)[2];
 	pid_t		*child;
-	t_tokens	*tk;
+	t_toks	*tk;
 
 	tk = *token;
 	fd = ft_calloc(sizeof(int *), (*token)->token_count - 1);
@@ -45,7 +45,7 @@ void	running_pipe(t_tokens **token, t_env **env)
 	free(fd);
 }
 
-void	run_p(pid_t *child, t_tokens **token, t_env **env, int (*fd)[2])
+void	run_p(pid_t *child, t_toks **token, t_env **env, int (*fd)[2])
 {
 	int			i;
 

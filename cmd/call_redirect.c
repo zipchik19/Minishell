@@ -1,9 +1,9 @@
 #include "../../minishell.h"
 
-int	call_redirections_part2(t_tokens **tk, t_count *len)
+int	call_redirections_part2(t_toks **tk, t_count *len)
 {	
-	t_redirects	*red;
-	t_tokens	*token;
+	t_redirs	*red;
+	t_toks	*token;
 
 	token = *tk;
 	red = token->head_redct;
@@ -25,10 +25,10 @@ int	call_redirections_part2(t_tokens **tk, t_count *len)
 	return (0);
 }
 
-void	call_redirections(t_tokens **tk)
+void	call_redirections(t_toks **tk)
 {
-	t_redirects	*red;
-	t_tokens	*token;
+	t_redirs	*red;
+	t_toks	*token;
 	t_count		*len;
 	int			i;
 
@@ -53,10 +53,10 @@ void	call_redirections(t_tokens **tk)
 	token = (*tk);
 }
 
-void	call_redirections6(t_tokens **tk, t_count *len)
+void	call_redirections6(t_toks **tk, t_count *len)
 {
-	t_redirects	*red;
-	t_tokens	*token;
+	t_redirs	*red;
+	t_toks	*token;
 	int			i;
 
 	token = *tk;
@@ -76,7 +76,7 @@ void	call_redirections6(t_tokens **tk, t_count *len)
 	token = (*tk);
 }
 
-int	count_redirect_part2(t_tokens *token, t_count **count)
+int	count_redirect_part2(t_toks *token, t_count **count)
 {
 	if (token->head_redct->flag == 1)
 		(*count)->count_1++;
@@ -93,11 +93,11 @@ int	count_redirect_part2(t_tokens *token, t_count **count)
 	return (0);
 }
 
-t_count	*count_redirect(t_tokens **tk)
+t_count	*count_redirect(t_toks **tk)
 {	
 	t_count		*count;
-	t_tokens	*token;
-	t_redirects	*red1;
+	t_toks	*token;
+	t_redirs	*red1;
 
 	token = *tk;
 	count = malloc(sizeof(t_count));

@@ -20,9 +20,9 @@ void	one_node_free(t_env **rtv)
 	free((*rtv));
 }
 
-void	free_part2(t_tokens **token)
+void	free_part2(t_toks **token)
 {
-	t_redirects	*hrd_next;
+	t_redirs	*hrd_next;
 
 	hrd_next = (*token)->head_redct->next;
 	if ((*token)->head_redct->del)
@@ -31,10 +31,10 @@ void	free_part2(t_tokens **token)
 	(*token)->head_redct = hrd_next;
 }
 
-void	free_t_list(t_tokens **token)
+void	free_t_list(t_toks **token)
 {
 	int			i;
-	t_tokens	*next;
+	t_toks	*next;
 
 	i = 0;
 	while ((*token))

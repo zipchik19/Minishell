@@ -10,10 +10,10 @@ int	call_heredoc_part2(char *del, int len)
 	return (len);
 }
 
-void	call_heredoc(t_tokens **tk, int len)
+void	call_heredoc(t_toks **tk, int len)
 {
-	t_tokens	*token;
-	t_redirects	*red;
+	t_toks	*token;
+	t_redirs	*red;
 
 	token = *tk;
 	while (token)

@@ -48,7 +48,7 @@ void	sigint_handler(int sig)
 	{
 		g_exit_code = 1;
 		ioctl(STDIN_FILENO, TIOCSTI, "\n");
-		//rl_replace_line("", 0);
+		rl_replace_line("", 0);
 		rl_on_new_line();
 	}
 }
@@ -57,6 +57,6 @@ void	sig_handler_hdoc(int sig)
 {
 	(void)sig;
 	g_exit_code = -14;
-	//rl_replace_line("", 0);
+	rl_replace_line("", 0);
 	rl_on_new_line();
 }

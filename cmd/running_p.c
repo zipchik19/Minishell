@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-void	running_p_part1(t_tokens *token, t_env **l_env, t_env *env)
+void	running_p_part1(t_toks *token, t_env **l_env, t_env *env)
 {
 	int	j;
 
@@ -28,10 +28,10 @@ void	running_p_part1(t_tokens *token, t_env **l_env, t_env *env)
 		execve_cmd2(l_env, token->cmd);
 }
 
-void	running_p(t_tokens **token, t_env **l_env, int (*fd)[2], int i)
+void	running_p(t_toks **token, t_env **l_env, int (*fd)[2], int i)
 {
 	t_env		*env;
-	t_tokens	*tk;
+	t_toks	*tk;
 	int			j;
 	t_count		*all_count;
 

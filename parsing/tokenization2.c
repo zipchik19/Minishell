@@ -1,10 +1,10 @@
 #include "../../minishell.h"
 
-t_redirects	*new_t_redirects(int flag, char *del, char *pathname)
+t_redirs	*new_t_redirs(int flag, char *del, char *pathname)
 {
-	t_redirects	*new_red;
+	t_redirs	*new_red;
 
-	new_red = malloc(sizeof(t_redirects));
+	new_red = malloc(sizeof(t_redirs));
 	new_red->flag = flag;
 	new_red->del = del;
 	new_red->pathname = pathname;
@@ -12,18 +12,18 @@ t_redirects	*new_t_redirects(int flag, char *del, char *pathname)
 	return (new_red);
 }
 
-t_tokens	*new_t_tokens(char *rdl, char **cmd,
+t_toks	*new_t_toks(char *rdl, char **cmd,
 	int *hrd_count, int count_token)
 {
-	t_tokens	*new_node;
+	t_toks	*new_node;
 
 	(void)cmd;
 	(void)hrd_count;
-	new_node = malloc(sizeof(t_tokens));
+	new_node = malloc(sizeof(t_toks));
 	new_node->rdl = rdl;
 	new_node->cmd = NULL;
 	new_node->head_redct = NULL;
-	new_node->head_redct = malloc(sizeof(t_redirects));
+	new_node->head_redct = malloc(sizeof(t_redirs));
 	new_node->head_redct->flag = 0;
 	new_node->head_redct->del = NULL;
 	new_node->head_redct->pathname = NULL;
@@ -33,7 +33,7 @@ t_tokens	*new_t_tokens(char *rdl, char **cmd,
 	return (new_node);
 }
 
-t_tokens	*ft_lstlast1(t_tokens *lst)
+t_toks	*ft_lstlast1(t_toks *lst)
 {
 	if (lst == NULL)
 		return (0);

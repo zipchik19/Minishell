@@ -1,4 +1,5 @@
 #include "../../minishell.h"
+
 int	smart_split_part2(int end, char *s, char c )
 {
 	while (s[end] && s[end] != c)

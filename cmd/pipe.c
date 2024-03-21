@@ -54,7 +54,7 @@ void	child_pr(int (*fd)[2], int i, int count)
 	fd_close(fd, count);
 }
 
-void	func_red(t_tokens **token)
+void	func_red(t_toks **token)
 {
 	t_count		*all_count;
 
