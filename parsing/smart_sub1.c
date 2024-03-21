@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-void	ft_smart_sub( char *rdl, t_toks **hert)
+void	smart_sub( char *rdl, t_toks **hert)
 {
 	int		i;
 	char	*tmp;
@@ -12,15 +12,15 @@ void	ft_smart_sub( char *rdl, t_toks **hert)
 		while (rdl[i] && rdl[i] == ' ')
 		i++;
 		if (rdl[i] && rdl[i + 1] && rdl[i] == '<' && rdl[i + 1] == '<')
-			i = ft_smart_sub_part1(rdl, i, hert);
+			i = smart_sub_part1(rdl, i, hert);
 		else if (rdl[i] && rdl[i + 1] && rdl[i] == '>' && rdl[i + 1] == '>')
-			i = ft_smart_sub_part2(rdl, i, hert);
+			i = smart_sub_part2(rdl, i, hert);
 		else if (rdl[i] && rdl[i] == '>')
-			i = ft_smart_sub_part3(rdl, i, hert);
+			i = smart_sub_part3(rdl, i, hert);
 		else if (rdl[i] && rdl[i] == '<')
-			i = ft_smart_sub_part4(rdl, i, hert);
+			i = smart_sub_part4(rdl, i, hert);
 		else
-			i = ft_smart_sub_part5(rdl, i, &tmp);
+			i = smart_sub_part5(rdl, i, &tmp);
 	}
 	if (tmp)
 	{

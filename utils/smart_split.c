@@ -12,9 +12,9 @@ static int	word_count(char *str, char delim)
 	while (str[i])
 	{
 		if (str[i] && str[i] == '\"')
-			i = find_end_of_double_quote(str, i);
+			i = end_of_2quote(str, i);
 		if (str[i] && str[i] == '\'')
-			i = find_end_of_single_quote(str, i);
+			i = end_of_1quote(str, i);
 		if (str[i] == delim)
 			prev_del = 1;
 		else if (prev_del)

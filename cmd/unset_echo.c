@@ -9,7 +9,7 @@ void	unset_cmd(t_env **l_env, char *new_key)
 	rtv = 0;
 	if (!new_key)
 		return ;
-	if (export_pars(new_key))
+	if (exp_pars(new_key))
 		return ;
 	if (find_key(l_env, new_key))
 	{

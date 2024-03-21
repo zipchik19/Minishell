@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-int	cheack_front(char *str, int *x)
+int	front_check(char *str, int *x)
 {
 	int	i;
 
@@ -14,7 +14,7 @@ int	cheack_front(char *str, int *x)
 	return (0);
 }
 
-int	cheack_back(char *str, int x)
+int	back_check(char *str, int x)
 {
 	int	i;
 

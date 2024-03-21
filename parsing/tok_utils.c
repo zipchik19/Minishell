@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-void	ftft(t_toks **token)
+void	tf_norm(t_toks **token)
 {
 	int			i;
 	t_toks	*tk;
@@ -12,14 +12,14 @@ void	ftft(t_toks **token)
 		i = 0;
 		while (tk && tk->cmd && tk->cmd[i])
 		{
-			tk->cmd[i] = ignore_quote(tk->cmd[i]);
+			tk->cmd[i] = ignore_quotes(tk->cmd[i]);
 			i++;
 		}
 		tk = tk->next;
 	}
 }
 
-int	ft_count_pipe(char *str)
+int	pipe_count(char *str)
 {
 	int	count;
 	int	i;
@@ -29,9 +29,9 @@ int	ft_count_pipe(char *str)
 	while (str[i])
 	{
 		if (str[i] == '\'')
-			i = find_end_of_single_quote(str, i);
+			i = end_of_1quote(str, i);
 		else if (str[i] == '\"')
-			i = find_end_of_double_quote(str, i);
+			i = end_of_2quote(str, i);
 		if (str[i] == '|')
 			count++;
 		i++;
@@ -39,7 +39,7 @@ int	ft_count_pipe(char *str)
 	return (count);
 }
 
-int	ft_count_toks(char **token)
+int	tok_count(char **token)
 {
 	int	i;
 
@@ -49,13 +49,13 @@ int	ft_count_toks(char **token)
 	return (i);
 }
 
-int	check_error(char **tokenized, char *str)
+int	error_msgs(char **tokenized, char *str)
 {
 	int	count_pipe;
 	int	count_toks;
 
-	count_pipe = ft_count_pipe(str);
-	count_toks = ft_count_toks(tokenized);
+	count_pipe = pipe_count(str);
+	count_toks = tok_count(tokenized);
 	if (count_pipe && count_toks - 1 != count_pipe)
 	{
 		g_exit_code = 258;

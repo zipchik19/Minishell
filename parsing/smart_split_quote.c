@@ -1,15 +1,15 @@
 #include "../../minishell.h"
 
-int	any_quote(char *str, int i)
-{
-	if (str[i] == '\'')
-	i = find_end_of_single_quote(str, i);
-	else if (str[i] == '\"')
-		i = find_end_of_double_quote(str, i);
-	return (i);
-}
+// int	any_quote(char *str, int i)
+// {
+// 	if (str[i] == '\'')
+// 	i = end_of_1quote(str, i);
+// 	else if (str[i] == '\"')
+// 		i = end_of_2quote(str, i);
+// 	return (i);
+// }
 
-char	*ignore_quote_part2(char *str, int i, int j)
+char	*ignore_quoteee(char *str, int i, int j)
 {
 	char	*tmp;
 
@@ -31,7 +31,7 @@ char	*ignore_quote_part2(char *str, int i, int j)
 	return (tmp);
 }
 
-char	*ignore_quote(char *str)
+char	*ignore_quotes(char *str)
 {
 	int		i;
 	int		j;
@@ -44,17 +44,17 @@ char	*ignore_quote(char *str)
 			j++;
 		i++;
 	}
-	return (ignore_quote_part2(str, i, j));
+	return (ignore_quoteee(str, i, j));
 }
 
-void	smart_smart_split(t_toks **token)
+void	other_smart_split(t_toks **token)
 {
 	t_toks	*tk;
 
 	tk = *token;
 	while (tk)
 	{
-		ft_smart_sub(tk->rdl, &tk);
+		smart_sub(tk->rdl, &tk);
 		tk = tk->next;
 	}
 }

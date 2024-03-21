@@ -33,9 +33,9 @@ int	syntax_pars_3(char *str)
 	while (str[i])
 	{
 		if (str[i] == '\'')
-			i = find_end_of_single_quote(str, i);
+			i = end_of_1quote(str, i);
 		else if (str[i] == '\"')
-			i = find_end_of_double_quote(str, i);
+			i = end_of_2quote(str, i);
 		if (str[i] == '|' && str[i + 1])
 		{
 			i++;
@@ -75,7 +75,7 @@ int	syntax_pars(char **str)
 	return (0);
 }
 
-int	gen_parsing(t_toks **token, t_env **env, char **str)
+int	main_pars(t_toks **token, t_env **env, char **str)
 {
 	t_toks	*tk;
 	char		*tmp;

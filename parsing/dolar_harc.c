@@ -11,7 +11,7 @@ void	dolar_harc(char **str)
 	{
 		if ((*str)[i] == '$' && (*str)[i + 1] == '?')
 		{
-			*str = join_dolar_str(*str, num, i + 1, 2);
+			*str = dolars_join(*str, num, i + 1, 2);
 			i++;
 		}
 		else

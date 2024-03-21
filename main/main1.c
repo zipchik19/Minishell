@@ -53,7 +53,7 @@ int	main(int arg_nb, char **argv, char **env)
 			break ;
 		if (sp_sp(str))
 		{
-			gen_parsing(&token, &s_env, &str);
+			main_pars(&token, &s_env, &str);
 			main_part3(&token, &s_env);
 			main_part4(&in_copy, &out_copy);
 			free_t_list(&token);

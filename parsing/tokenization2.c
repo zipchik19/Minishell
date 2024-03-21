@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-t_redirs	*new_t_redirs(int flag, char *del, char *pathname)
+t_redirs	*new_redirs(int flag, char *del, char *pathname)
 {
 	t_redirs	*new_red;
 
@@ -12,7 +12,7 @@ t_redirs	*new_t_redirs(int flag, char *del, char *pathname)
 	return (new_red);
 }
 
-t_toks	*new_t_toks(char *rdl, char **cmd,
+t_toks	*new_toks(char *rdl, char **cmd,
 	int *hrd_count, int count_token)
 {
 	t_toks	*new_node;

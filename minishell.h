@@ -34,7 +34,9 @@ typedef struct s_redirs
 	struct s_redirs		*next;
 }	t_redirs;
 
-typedef struct s_toks
+typedef struct s_toks t_toks;
+
+struct s_toks
 {
 	char		*rdl;
 	char		**cmd;
@@ -44,15 +46,17 @@ typedef struct s_toks
 	int			out_copy;
 	t_redirs	*head_redct;
 	t_toks	*next;
-}	t_toks;
+};
 
-typedef struct s_env
+typedef struct s_env t_env;
+
+struct s_env
 {
 	char	*key;
 	char	*value;
 	int		flag;
 	t_env	*next;
-}	t_env;
+};
 
 char		*ft_itoa(int n);
 long long	ft_atoi(const char *str);
@@ -73,7 +77,7 @@ char		**smart_split(char *s, char c);
 char		*ft_cat_str(char *s);
 int			ft_isdigit(char *str);
 void		ft_putstr_fd(char *s, int fd);
-char		*ignore_quote(char *str);
+char		*ignore_quotes(char *str);
 void		*ft_calloc(int c, int s);
 int			ft_strlen(char *str);
 int			ft_strcrcmp(char *str, char c);
@@ -109,17 +113,16 @@ void		heredoc_part2(int i, int fd, char *file);
 int			status_check(char *file, char *s);
 
 int			sp_sp(char *str);
-int			gen_parsing(t_toks **token, t_env **env, char **str);
+int			main_pars(t_toks **token, t_env **env, char **str);
 void		parsing_part_1(char *str, t_toks **token);
-char		*join_dolar_str(char *str, char *world, int x, int z);
-int			export_pars(char *str);
+char		*dolars_join(char *str, char *world, int x, int z);
+int			exp_pars(char *str);
 int			pre_parsing(char *str);
 int			syntax_pars_2(char *str);
 int			syntax_pars_3(char *str);
 void		dolar_pars(char **str);
 void		dollar_harcakan(void);
-int			go_until_spasce(char *str, int i);
-char		*join_dolar_str(char *str, char *world, int x, int z);
+int			skip_find_sp_idx(char *str, int i);
 
 void		ft_signal_handling(int sig);
 void		handleterm(int s);
@@ -132,13 +135,13 @@ void		sig_control(int a);
 
 t_env		*ft_lstlast(t_env *lst);
 void		ft_lstadd_back(t_env **lst, t_env *new);
-t_redirs	*new_t_redirs(int flag, char *del, char *pathname);
-void		t_redirs_add_back(t_redirs **head, t_redirs *new_node);
-t_redirs	*new_t_redirs(int flag, char *del, char *pathname);
-void		t_redirs_add_back(t_redirs **head, t_redirs *new_node);
+t_redirs	*new_redirs(int flag, char *del, char *pathname);
+void		redirs_add_back(t_redirs **head, t_redirs *new_node);
+t_redirs	*new_redirs(int flag, char *del, char *pathname);
+void		redirs_add_back(t_redirs **head, t_redirs *new_node);
 void		free_t_list(t_toks **token);
 void		one_node_free(t_env **rtv);
-t_toks		*new_t_toks(char *rdl, char **cmd,
+t_toks		*new_toks(char *rdl, char **cmd,
 				int *hrd_count, int count_token);
 
 int			env_len(t_env **l_env);
@@ -154,16 +157,16 @@ void		initializer(t_toks **token);
 void		dolar_harc(char **str);
 void		tokenization(t_toks **token, char **str );
 int			matrix_len(char **str);
-int			check_error(char **tokenized, char *str);
-void		ftft(t_toks **token);
-void		ft_fill_red(t_toks **token, int flag, char *str);
+int			error_msgs(char **tokenized, char *str);
+void		tf_norm(t_toks **token);
+void		fill_reds(t_toks **token, int flag, char *str);
 t_toks		*ft_lstlast1(t_toks *lst);
 
 t_count		*count_all(t_toks **tk);
 t_count		*count_red(t_toks **tk);
 t_count		*count_redirect(t_toks **tk);
-int			ft_count_toks(char **token);
-int			ft_count_pipe(char *str);
+int			tok_count(char **token);
+int			pipe_count(char *str);
 
 void		running_pipe(t_toks **token, t_env **env);
 void		ft_pipe_call(int (*fd)[2], int count);
@@ -183,8 +186,8 @@ void		call_redirections(t_toks **tk);
 void		processing_status(int size);
 
 int			check(int i, char *str, int *flg);
-int			cheack_back(char *str, int x);
-int			cheack_front(char *str, int *x);
+int			back_check(char *str, int x);
+int			front_check(char *str, int *x);
 int			check_cmd( t_toks **token, int i);
 int			check_herdoc( t_toks **token, int i);
 int			check_redirect( t_toks **token, int i);
@@ -193,8 +196,8 @@ void		print_error(char *cmd, char *str, int code);
 int			execve_print(char *str, int z);
 void		child_error(int i, pid_t *child);
 
-int			find_end_of_double_quote(char *str, int i);
-int			find_end_of_single_quote(char *str, int i);
+int			end_of_2quote(char *str, int i);
+int			end_of_1quote(char *str, int i);
 
 void		ft_execv(char *new_str, char **mx_env, char **str);
 char		*cheack_access(char **path, char **str, char **mx_env);
@@ -203,15 +206,15 @@ void		create_the_paths(char **splited_path, char *new_str);
 
 int			ft_strcmp_part2(char *str, char *cmd, int len);
 char		**smart_split1(char *s, char c);
-void		smart_smart_split(t_toks **token);
+void		other_smart_split(t_toks **token);
 int			smart_split_part1(int start, char *s, char c, int i);
 int			smart_split_part2(int end, char *s, char c );
-void		ft_smart_sub(char *rdl, t_toks **hert);
-int			ft_smart_sub_part1(char *rdl, int i, t_toks **hert);
-int			ft_smart_sub_part2(char *rdl, int i, t_toks **hert);
-int			ft_smart_sub_part3(char *rdl, int i, t_toks **hert);
-int			ft_smart_sub_part4(char *rdl, int i, t_toks **hert);
-int			ft_smart_sub_part5(char *rdl, int i, char	**tmp);
+void		smart_sub(char *rdl, t_toks **hert);
+int			smart_sub_part1(char *rdl, int i, t_toks **hert);
+int			smart_sub_part2(char *rdl, int i, t_toks **hert);
+int			smart_sub_part3(char *rdl, int i, t_toks **hert);
+int			smart_sub_part4(char *rdl, int i, t_toks **hert);
+int			smart_sub_part5(char *rdl, int i, char	**tmp);
 void		do_the_job(t_redirs *token, t_count *len);
 
 #endif

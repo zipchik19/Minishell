@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-int	go_until_spasce(char *str, int i)
+int	skip_find_sp_idx(char *str, int i)
 {
 	while (str[i] && str[i] == ' ')
 		i++;
@@ -9,7 +9,7 @@ int	go_until_spasce(char *str, int i)
 	return (i);
 }
 
-char	*join_dolar_str(char *str, char *world, int x, int z)
+char	*dolars_join(char *str, char *world, int x, int z)
 {
 	int		len_s;
 	char	*new_str;

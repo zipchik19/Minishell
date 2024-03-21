@@ -75,7 +75,7 @@ void	export_cmd(t_env **l_env, char *str)
 	len = ft_strlen(str);
 	i = ft_int_strchr(str, '=');
 	splited = split_export(str);
-	if (export_pars(splited[0]))
+	if (exp_pars(splited[0]))
 	{
 		matrix_free(splited);
 		return ;
