@@ -1,5 +1,20 @@
 #include "../../minishell.h"
 
+int check_nums(char *c)
+{
+	unsigned long long int nb;
+
+	nb = ft_atoi(c);
+	if(ft_strcmp(c, "-9223372036854775808"))
+		return(0);
+	else if(ft_atoi(c) < 0)
+		nb = -1 * ft_atoi(c);
+	if (nb < 9223372036854775807)
+		return(1);
+	return(0);
+
+}
+
 int	exit_cmd(char **c)
 {
 	char		*str;
@@ -11,11 +26,11 @@ int	exit_cmd(char **c)
 		exit(0);
 	}
 	if(ft_atoi(c[1]) < 0)
-		nb = (-1 * ft_atoi(c[1])) - 1;
+		nb = -1 * ft_atoi(c[1]);
 	nb = ft_atoi(c[1]);
-	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || (nb > 9223372036854775807))
+	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || check_nums(c[1]))
 	{
-		printf("exit\n");/////////////////////
+		printf("exit\n");
 		print_error_exit("exit", c[1], " numeric argument required", 255);
 		exit(255);
 	}
@@ -51,7 +66,7 @@ void	exit_2(char *str)
 	}
 	else
 	{
-		printf("exit\n");/////////////////////
+		printf("exit\n");
 		print_error_exit("exit", str, "numeric argument required", 255);
 		exit(255);
 	}

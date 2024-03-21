@@ -19,10 +19,10 @@ void	print_error_exit(char *cmd,char *val, char *str, int code)
 	if (cmd)
 	{
 		ft_putstr_fd(cmd, 2);
-		ft_putstr_fd(":", 2);
+		ft_putstr_fd(": ", 2);
 	}
 	ft_putstr_fd(val, 2);
-	ft_putstr_fd(":", 2);
+	ft_putstr_fd(": ", 2);
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);
 }
