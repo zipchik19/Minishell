@@ -11,13 +11,14 @@ int	exit_cmd(char **c)
 	}
 	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])))
 	{
-		print_error("exit", " numeric argument required", 255);
+		printf("exit\n");/////////////////////
+		print_error_exit("exit", c[1], "numeric argument required", 255);
 		exit(255);
 	}
 	if (c[2] && ft_isdigit(c[1]))
 	{
 		printf("exit\n");
-		print_error("exit", " too many arguments", 1);
+		print_error("exit", "too many arguments", 1);
 		return (0);
 	}
 	str = ft_cat_str(c[1]);
@@ -47,7 +48,8 @@ void	exit_2(char *str)
 	}
 	else
 	{
-		print_error("exit", "numeric argument required", 255);
+		printf("exit\n");/////////////////////
+		print_error_exit("exit", str, "numeric argument required", 255);
 		exit(255);
 	}
 	free(str);
