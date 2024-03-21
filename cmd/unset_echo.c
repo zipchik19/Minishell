@@ -35,7 +35,7 @@ void	echo_cmd(char **str)
 		i = 2;
 		while (str[i])
 		{
-			printf("%s ", str[i]);
+			printf("%s", str[i]);
 				i++;
 		}
 	}

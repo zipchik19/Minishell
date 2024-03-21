@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-int	smart_sub_part1(char *rdl, int i, t_toks **tok)
+int	sub_sub_part1(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -19,7 +19,7 @@ int	smart_sub_part1(char *rdl, int i, t_toks **tok)
 	return (i);
 }
 
-int	smart_sub_part2(char *rdl, int i, t_toks **tok)
+int	sub_sub_part2(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -38,7 +38,7 @@ int	smart_sub_part2(char *rdl, int i, t_toks **tok)
 	return (i);
 }
 
-int	smart_sub_part3(char *rdl, int i, t_toks **tok)
+int	sub_sub_part3(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -57,7 +57,7 @@ int	smart_sub_part3(char *rdl, int i, t_toks **tok)
 	return (i);
 }
 
-int	smart_sub_part4(char *rdl, int i, t_toks **tok)
+int	sub_sub_part4(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -72,7 +72,7 @@ int	smart_sub_part4(char *rdl, int i, t_toks **tok)
 	return (i);
 }
 
-int	smart_sub_part5(char *rdl, int i, char	**tmp)
+int	sub_sub_part5(char *rdl, int i, char	**tmp)
 {
 	int		j;
 	char	*var;

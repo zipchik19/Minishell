@@ -54,7 +54,7 @@ void	other_smart_split(t_toks **tok)
 	tk = *tok;
 	while (tk)
 	{
-		smart_sub(tk->rdl, &tk);
+		sub_sub(tk->rdl, &tk);
 		tk = tk->next;
 	}
 }

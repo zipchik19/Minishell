@@ -209,12 +209,12 @@ char		**smart_split1(char *s, char c);
 void		other_smart_split(t_toks **token);
 int			smart_split_part1(int start, char *s, char c, int i);
 int			smart_split_part2(int end, char *s, char c );
-void		smart_sub(char *rdl, t_toks **hert);
-int			smart_sub_part1(char *rdl, int i, t_toks **hert);
-int			smart_sub_part2(char *rdl, int i, t_toks **hert);
-int			smart_sub_part3(char *rdl, int i, t_toks **hert);
-int			smart_sub_part4(char *rdl, int i, t_toks **hert);
-int			smart_sub_part5(char *rdl, int i, char	**tmp);
+void		sub_sub(char *rdl, t_toks **hert);
+int			sub_sub_part1(char *rdl, int i, t_toks **hert);
+int			sub_sub_part2(char *rdl, int i, t_toks **hert);
+int			sub_sub_part3(char *rdl, int i, t_toks **hert);
+int			sub_sub_part4(char *rdl, int i, t_toks **hert);
+int			sub_sub_part5(char *rdl, int i, char	**tmp);
 void		do_the_job(t_redirs *token, t_count *len);
 
 #endif
