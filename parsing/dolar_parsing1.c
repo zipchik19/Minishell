@@ -42,10 +42,10 @@ void	dolar_pars(char **str)
 			i = end_of_1quote(*str, i);
 		if ((*str)[i] == '<' && (*str)[i + 1] && (*str)[i + 1] == '<' )
 			i = skip_find_sp_idx(*str, i + 2);
-		if ((*str)[i] == '$' && (*str)[i + 1] == '?')
+		if ((*str)[i] == '$' && (*str)[i + 1] == '?' && (*str)[i + 2])
 			i = i + 2;
 		if ((*str)[i] == '$' && (*str)[i + 1] != ' '
-			&& (*str)[i + 1] && (*str)[i + 1] != '\"')
+			&& (*str)[i + 1] && (*str)[i + 1] != '\"' && (*str)[i + 1] != '?')
 		{
 			x = ++i;
 			while ((*str)[i] != ' ' && (*str)[i] && (*str)[i] != '$'
