@@ -2,18 +2,18 @@
 
 int	g_exit_code = 0;
 
-void	main_part4(int *in_copy, int *out_copy)
+void	main4(int *in_cpy, int *out_cpy)
 {
-	dup2(*in_copy, 0);
-	dup2(*out_copy, 1);
-	close(*out_copy);
+	dup2(*in_cpy, 0);
+	dup2(*out_cpy, 1);
+	close(*out_cpy);
 }
 
-int	main_part2(int *in_copy, int *out_copy, char **str)
+int	main2(int *in_cpy, int *out_cpy, char **str)
 {
 	sig_control(1);
-	*in_copy = dup(0);
-	*out_copy = dup(1);
+	*in_cpy = dup(0);
+	*out_cpy = dup(1);
 	*str = readline ("Minishell$> ");
 	ctrl_d_check(*str);
 	if (*str)
@@ -23,40 +23,40 @@ int	main_part2(int *in_copy, int *out_copy, char **str)
 	return (0);
 }
 
-void	main_part3(t_toks **token, t_env **s_env)
+void	main3(t_toks **tok, t_env **s_env)
 {			
-	if (*token)
+	if (*tok)
 	{
-		if ((*token)->token_count > 1)
-			running_pipe(token, s_env);
+		if ((*tok)->token_count > 1)
+			running_pipe(tok, s_env);
 		else
-			running(token, s_env);
+			running(tok, s_env);
 	}
 }
 
-int	main(int arg_nb, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
 	char		*str;
-	int			in_copy;
-	int			out_copy;
-	t_toks	*token;
+	int			in_cpy;
+	int			out_cpy;
+	t_toks		*tok;
 	t_env		*s_env;
 
-	(void)arg_nb;
+	(void)argc;
 	(void)argv;
 	s_env = malloc(sizeof(t_env));
 	env_init(env, &s_env);
 	shell_level(&s_env);
 	while (1)
 	{
-		if (main_part2(&in_copy, &out_copy, &str))
+		if (main2(&in_cpy, &out_cpy, &str))
 			break ;
-		if (sp_sp(str))
+		if (sp_trim(str))
 		{
-			main_pars(&token, &s_env, &str);
-			main_part3(&token, &s_env);
-			main_part4(&in_copy, &out_copy);
-			free_t_list(&token);
+			main_pars(&tok, &s_env, &str);
+			main3(&tok, &s_env);
+			main4(&in_cpy, &out_cpy);
+			free_toks(&tok);
 		}
 		free(str);
 	}

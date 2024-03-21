@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-int	smart_sub_part1(char *rdl, int i, t_toks **hert)
+int	smart_sub_part1(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -15,11 +15,11 @@ int	smart_sub_part1(char *rdl, int i, t_toks **hert)
 	i = end_of_2quote(rdl, i);
 	while (rdl[i] && rdl[i] != ' ')
 	i++;
-	fill_reds(hert, 2, ignore_quotes(ft_substr(rdl, j, i - j)));
+	fill_reds(tok, 2, ignore_quotes(ft_substr(rdl, j, i - j)));
 	return (i);
 }
 
-int	smart_sub_part2(char *rdl, int i, t_toks **hert)
+int	smart_sub_part2(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -34,11 +34,11 @@ int	smart_sub_part2(char *rdl, int i, t_toks **hert)
 	j = i;
 	while (rdl[i] && rdl[i] != ' ')
 	i++;
-	fill_reds(hert, 4, ignore_quotes(ft_substr(rdl, j, i - j)));
+	fill_reds(tok, 4, ignore_quotes(ft_substr(rdl, j, i - j)));
 	return (i);
 }
 
-int	smart_sub_part3(char *rdl, int i, t_toks **hert)
+int	smart_sub_part3(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -53,11 +53,11 @@ int	smart_sub_part3(char *rdl, int i, t_toks **hert)
 	i = end_of_2quote(rdl, i);
 	while (rdl[i] && !ft_strcrcmp(REDE, rdl[i]))
 	i++;
-	fill_reds(hert, 3, ignore_quotes(ft_substr(rdl, j, i - j)));
+	fill_reds(tok, 3, ignore_quotes(ft_substr(rdl, j, i - j)));
 	return (i);
 }
 
-int	smart_sub_part4(char *rdl, int i, t_toks **hert)
+int	smart_sub_part4(char *rdl, int i, t_toks **tok)
 {
 	int	j;
 
@@ -68,14 +68,14 @@ int	smart_sub_part4(char *rdl, int i, t_toks **hert)
 	j = i;
 	while (rdl[i] && rdl[i] != ' ')
 	i++;
-	fill_reds(hert, 1, ignore_quotes(ft_substr(rdl, j, i - j)));
+	fill_reds(tok, 1, ignore_quotes(ft_substr(rdl, j, i - j)));
 	return (i);
 }
 
 int	smart_sub_part5(char *rdl, int i, char	**tmp)
 {
 	int		j;
-	char	*esim;
+	char	*var;
 	char	*ptr;
 
 	j = 0;
@@ -89,9 +89,9 @@ int	smart_sub_part5(char *rdl, int i, char	**tmp)
 		i++;
 	}
 	ptr = ft_substr(rdl, j, i - j);
-	esim = *tmp;
+	var = *tmp;
 	*tmp = ft_strjoin1(*tmp, ptr);
-	free(esim);
+	free(var);
 	if (ptr)
 		free(ptr);
 	return (i);

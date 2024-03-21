@@ -5,8 +5,8 @@ SRC=$(wildcard cmd/*.c) \
 	$(wildcard utils/*.c)
 OBJ=$(SRC:src/%.c=obj/%.o) 
 CC=cc
-#CFLAGS=-Wall -Werror -Wextra -fsanitize=address -static-libsan -g
-CFLAGS=-Wall -Werror -Wextra -g
+CFLAGS=-Wall -Werror -Wextra -fsanitize=address -static-libsan -g
+#CFLAGS=-Wall -Werror -Wextra -g
 RM=rm -rf
 INCLUDES = -Ireadline/include
 LINKERS	= -Lreadline/lib -lreadline -lhistory

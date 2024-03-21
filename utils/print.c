@@ -13,9 +13,9 @@ void	print_error(char *cmd, char *str, int code)
 	ft_putstr_fd("\n", 2);
 }
 
-void	ft_putstr_fd1(char *s, int fd, int fl)
+void	ft_putstr_fd_endl(char *s, int fd, int len)
 {
 	write(fd, s, ft_strlen(s));
-	if (fl)
+	if (len)
 		write(fd, "\n", 1);
 }

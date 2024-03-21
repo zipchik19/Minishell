@@ -65,7 +65,7 @@ char		*ft_strchr(char *str, int c);
 char		*ft_strchr(char *str, int c);
 char		**split_export(char *str);
 char		*ft_strdup( char *s1);
-void		matrix_free(char **env_split);
+void		free_envs(char **env_split);
 int			ft_strcmp1(char *s1, char *s2);
 int			ft_strcmp(char *str, char *cmd);
 char		*ft_strtrim(char *s1, char *set);
@@ -82,7 +82,7 @@ void		*ft_calloc(int c, int s);
 int			ft_strlen(char *str);
 int			ft_strcrcmp(char *str, char c);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
-void		ft_putstr_fd1(char *s, int fd, int fl);
+void		ft_putstr_fd_endl(char *s, int fd, int fl);
 
 void		env_cmd(t_env *env);
 void		echo_cmd(char **str);
@@ -112,7 +112,7 @@ void		heredoc(char *key, int i);
 void		heredoc_part2(int i, int fd, char *file);
 int			status_check(char *file, char *s);
 
-int			sp_sp(char *str);
+int			sp_trim(char *str);
 int			main_pars(t_toks **token, t_env **env, char **str);
 void		parsing_part_1(char *str, t_toks **token);
 char		*dolars_join(char *str, char *world, int x, int z);
@@ -139,8 +139,8 @@ t_redirs	*new_redirs(int flag, char *del, char *pathname);
 void		redirs_add_back(t_redirs **head, t_redirs *new_node);
 t_redirs	*new_redirs(int flag, char *del, char *pathname);
 void		redirs_add_back(t_redirs **head, t_redirs *new_node);
-void		free_t_list(t_toks **token);
-void		one_node_free(t_env **rtv);
+void		free_toks(t_toks **token);
+void		free_node(t_env **rtv);
 t_toks		*new_toks(char *rdl, char **cmd,
 				int *hrd_count, int count_token);
 

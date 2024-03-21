@@ -1,12 +1,12 @@
 #include "../../minishell.h"
 
-void	tf_norm(t_toks **token)
+void	tf_norm(t_toks **tok)
 {
 	int			i;
-	t_toks	*tk;
+	t_toks		*tk;
 
 	i = 0;
-	tk = *token;
+	tk = *tok;
 	while (tk)
 	{
 		i = 0;
@@ -39,12 +39,12 @@ int	pipe_count(char *str)
 	return (count);
 }
 
-int	tok_count(char **token)
+int	tok_count(char **tok)
 {
 	int	i;
 
 	i = 0;
-	while (token[i])
+	while (tok[i])
 		i++;
 	return (i);
 }

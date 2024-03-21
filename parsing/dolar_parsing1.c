@@ -18,15 +18,15 @@ int	end_of_2quote(char *str, int i)
 
 void	dolar_parsss(char **str, int i, int x)
 {
-	char	*world;
+	char	*word;
 	char	*back;
 	int		len;
 
-	world = ft_substr(*str, x, i - x);
-	back = getenv(world);
+	word = ft_substr(*str, x, i - x);
+	back = getenv(word);
 	*str = dolars_join(*str, back, x, i - x + 1);
 	len = ft_strlen(str[0]);
-	free(world);
+	free(word);
 }
 
 void	dolar_pars(char **str)

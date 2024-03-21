@@ -66,3 +66,19 @@ int	ft_int_strchr(char *str, char c)
 	}
 	return (0);
 }
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+
+	d = (char *)dest;
+	s = (char *)src;
+	if ((dest != NULL) && (s != NULL))
+	{
+		while (n--)
+		{
+			*(d++) = *(s++);
+		}
+	}
+	return (dest);
+}

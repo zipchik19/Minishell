@@ -13,7 +13,7 @@ t_redirs	*new_redirs(int flag, char *del, char *pathname)
 }
 
 t_toks	*new_toks(char *rdl, char **cmd,
-	int *hrd_count, int count_token)
+	int *hrd_count, int count_tok)
 {
 	t_toks	*new_node;
 
@@ -28,7 +28,7 @@ t_toks	*new_toks(char *rdl, char **cmd,
 	new_node->head_redct->del = NULL;
 	new_node->head_redct->pathname = NULL;
 	new_node->head_redct->next = NULL;
-	new_node->token_count = count_token;
+	new_node->token_count = count_tok;
 	new_node->next = NULL;
 	return (new_node);
 }

@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-void	matrix_free(char **env_split)
+void	free_envs(char **env_split)
 {
 	int	j;
 
@@ -13,14 +13,14 @@ void	matrix_free(char **env_split)
 	free(env_split);
 }
 
-void	one_node_free(t_env **rtv)
+void	free_node(t_env **rtv)
 {
 	free((*rtv)->value);
 	free((*rtv)->key);
 	free((*rtv));
 }
 
-void	free_part2(t_toks **token)
+void	free_2(t_toks **token)
 {
 	t_redirs	*hrd_next;
 
@@ -31,7 +31,7 @@ void	free_part2(t_toks **token)
 	(*token)->head_redct = hrd_next;
 }
 
-void	free_t_list(t_toks **token)
+void	free_toks(t_toks **token)
 {
 	int			i;
 	t_toks	*next;
@@ -49,7 +49,7 @@ void	free_t_list(t_toks **token)
 				free((*token)->cmd[i++]);
 		}
 		while ((*token)->head_redct && (*token)->head_redct->flag)
-			free_part2(token);
+			free_2(token);
 		free((*token)->head_redct);
 		next = (*token)->next;
 		free((*token)->cmd);

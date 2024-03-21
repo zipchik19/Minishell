@@ -75,13 +75,13 @@ int	syntax_pars(char **str)
 	return (0);
 }
 
-int	main_pars(t_toks **token, t_env **env, char **str)
+int	main_pars(t_toks **tok, t_env **env, char **str)
 {
-	t_toks	*tk;
+	t_toks		*tk;
 	char		*tmp;
 
 	(void)env;
-	tk = *token;
+	tk = *tok;
 	tmp = *str;
 	*str = ft_strtrim(tmp, " ");
 	free(tmp);
@@ -89,6 +89,6 @@ int	main_pars(t_toks **token, t_env **env, char **str)
 		return (1);
 	dolar_pars(str);
 	dolar_harc(str);
-	tokenization(token, str);
+	tokenization(tok, str);
 	return (0);
 }

@@ -47,11 +47,11 @@ char	*ignore_quotes(char *str)
 	return (ignore_quoteee(str, i, j));
 }
 
-void	other_smart_split(t_toks **token)
+void	other_smart_split(t_toks **tok)
 {
 	t_toks	*tk;
 
-	tk = *token;
+	tk = *tok;
 	while (tk)
 	{
 		smart_sub(tk->rdl, &tk);

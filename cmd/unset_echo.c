@@ -17,7 +17,7 @@ void	unset_cmd(t_env **l_env, char *new_key)
 		while (env->next != rtv)
 			env = env->next;
 		env->next = rtv->next;
-		one_node_free(&rtv);
+		free_node(&rtv);
 	}
 }
 

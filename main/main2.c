@@ -9,16 +9,16 @@ void	ctrl_d_check(char *s)
 	}
 }
 
-int	sp_sp(char *str)
+int	sp_trim(char *str)
 {
-	char	*rt;
+	char	*res;
 
-	rt = ft_strtrim(str, " ");
-	if (rt == NULL)
+	res = ft_strtrim(str, " ");
+	if (res == NULL)
 		return (0);
 	else
 	{
-		free(rt);
+		free(res);
 		return (1);
 	}
 }

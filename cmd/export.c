@@ -77,7 +77,7 @@ void	export_cmd(t_env **l_env, char *str)
 	splited = split_export(str);
 	if (exp_pars(splited[0]))
 	{
-		matrix_free(splited);
+		free_envs(splited);
 		return ;
 	}
 	if (!if_key_already_exist(l_env, splited))

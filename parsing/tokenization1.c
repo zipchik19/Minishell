@@ -1,18 +1,18 @@
 #include "../../minishell.h"
 
-void	fill_reds(t_toks **token, int flag, char *str)
+void	fill_reds(t_toks **tok, int flag, char *str)
 {
-	t_toks	*tk;
+	t_toks		*tk;
 	t_redirs	*red;
 
 	red = NULL;
-	tk = *token;
-	if ((*token)->head_redct->flag == 0)
+	tk = *tok;
+	if ((*tok)->head_redct->flag == 0)
 	{
-		(*token)->head_redct->del = str;
-		(*token)->head_redct->flag = flag;
-		(*token)->head_redct->pathname = NULL;
-		(*token)->head_redct->next = NULL;
+		(*tok)->head_redct->del = str;
+		(*tok)->head_redct->flag = flag;
+		(*tok)->head_redct->pathname = NULL;
+		(*tok)->head_redct->next = NULL;
 	}
 	else
 	{
@@ -49,7 +49,7 @@ void	toks_add_back(t_toks **head, t_toks *new)
 	ft_lstlast1(node)->next = new;
 }
 
-void	fill_toks(t_toks **token, char **tokenized,
+void	fill_toks(t_toks **tok, char **tokenized,
 	int *hrd_c, int count_token)
 {
 	int	i;
@@ -57,13 +57,13 @@ void	fill_toks(t_toks **token, char **tokenized,
 	i = 0;
 	while (tokenized && tokenized[i])
 	{
-		toks_add_back(token, new_toks(tokenized[i],
+		toks_add_back(tok, new_toks(tokenized[i],
 				NULL, hrd_c, count_token));
 		i++;
 	}
 }
 
-void	tokenization(t_toks **token, char **str)
+void	tokenization(t_toks **tok, char **str)
 {
 	char	**tokenized;
 	int		*hrd_c;
@@ -73,8 +73,8 @@ void	tokenization(t_toks **token, char **str)
 	tokenized = smart_split(*str, '|');
 	count_token = matrix_len(tokenized);
 	error_msgs(tokenized, str[0]);
-	fill_toks(token, tokenized, hrd_c, count_token);
+	fill_toks(tok, tokenized, hrd_c, count_token);
 	free(tokenized);
-	other_smart_split(token);
-	tf_norm(token);
+	other_smart_split(tok);
+	tf_norm(tok);
 }

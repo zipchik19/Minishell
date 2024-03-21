@@ -19,7 +19,7 @@ void	processing_status(int size)
 			if (g_exit_code == 130)
 				write(1, "\n", 1);
 			else if (g_exit_code == 131)
-				ft_putstr_fd1("Quit 3", 1, 1);
+				ft_putstr_fd_endl("Quit 3", 1, 1);
 		}
 	}
 }
@@ -90,7 +90,7 @@ void	processing_status_pipe(pid_t *a, int size)
 				if (g_exit_code == 130)
 					write(1, "\n", 1);
 				else if (g_exit_code == 131)
-					ft_putstr_fd1("Quit 3", 1, 1);
+					ft_putstr_fd_endl("Quit 3", 1, 1);
 			}
 		}
 	}

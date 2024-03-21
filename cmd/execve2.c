@@ -20,8 +20,8 @@ void	execve_cmd2(t_env **env, char **str)
 		mx_env = t_env_to_matrix(env);
 		new_str = cheack_access(splited_path, str, mx_env);
 		ft_execv(new_str, mx_env, str);
-		matrix_free(mx_env);
-		matrix_free(splited_path);
+		free_envs(mx_env);
+		free_envs(splited_path);
 	}
 	return ;
 }
@@ -50,8 +50,8 @@ void	ft_execve_cmd_part2(char **splited_path,
 	}
 	else
 		signal_execve();
-	matrix_free(mx_env);
-	matrix_free(splited_path);
+	free_envs(mx_env);
+	free_envs(splited_path);
 }
 
 void	execve_cmd(t_env **env, char **str)
