@@ -2,22 +2,24 @@
 
 void	tf_norm(t_toks **tok)
 {
-	int			i;
-	t_toks		*tk;
-
-	i = 0;
-	tk = *tok;
-	while (tk)
-	{
-		i = 0;
-		while (tk && tk->cmd && tk->cmd[i])
-		{
-			tk->cmd[i] = ignore_quotes(tk->cmd[i]);
-			i++;
-		}
-		tk = tk->next;
-	}
+    t_toks *tk = *tok;
+    while (tk)
+    {
+        int i = 0;
+        while (tk->cmd && tk->cmd[i])
+        {
+            char* modified_cmd = ignore_quotes(tk->cmd[i]);
+            if (modified_cmd != NULL)
+			{
+                free(tk->cmd[i]);
+                tk->cmd[i] = modified_cmd;
+            }
+            i++;
+        }
+        tk = tk->next;
+    }
 }
+
 
 int	pipe_count(char *str)
 {

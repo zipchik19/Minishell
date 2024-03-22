@@ -5,7 +5,7 @@ SRC=$(wildcard cmd/*.c) \
 	$(wildcard utils/*.c)
 OBJ=$(SRC:src/%.c=obj/%.o) 
 CC=cc
-CFLAGS=-Wall -Werror -Wextra #-fsanitize=address -static-libsan -g
+CFLAGS=-Wall -Werror -Wextra #-fsanitize=address #-static-libsan -g 
 #CFLAGS=-Wall -Werror -Wextra -g
 RM=rm -rf
 INCLUDES = -Ireadline/include
@@ -17,7 +17,7 @@ all: $(NAME)
 obj/%.o : src/%.c obj/marker readline minishell.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME) : $(OBJ) readline
+$(NAME) : $(OBJ) readline Makefile
 	$(CC) $(CFLAGS) $(OBJ) $(INCLUDES) -o $(NAME) $(LINKERS)
 
 clean:

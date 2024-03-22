@@ -67,7 +67,7 @@ void	run_p(pid_t *child, t_toks **token, t_env **env, int (*fd)[2])
 		i++;
 		(*token) = (*token)->next;
 	}
-		system("leaks minishell");
+		//("leaks minishell");
 }
 
 void	processing_status_pipe(pid_t *a, int size)

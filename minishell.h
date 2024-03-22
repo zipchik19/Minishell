@@ -62,7 +62,6 @@ char		*ft_itoa(int n);
 long long	ft_atoi(const char *str);
 int			ft_int_strchr(char *str, char c);
 char		*ft_strchr(char *str, int c);
-char		*ft_strchr(char *str, int c);
 char		**split_export(char *str);
 char		*ft_strdup( char *s1);
 void		free_envs(char **env_split);
@@ -221,4 +220,8 @@ void		do_the_job(t_redirs *token, t_count *len);
 void		print_error_exit(char *cmd,char *val, char *str, int code);
 unsigned long long	ft_atoi2(const char *str);
 
+
+/////////Inga
+
+void	running_part1(t_toks *token, t_env **l_env, t_env *env);
 #endif
