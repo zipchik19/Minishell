@@ -3,7 +3,7 @@
 void	print_error(char *cmd, char *str, int code)
 {
 	g_exit_code = code;
-	ft_putstr_fd("minishell: ", 2);
+	ft_putstr_fd("miniHell: ", 2);
 	if (cmd)
 	{
 		ft_putstr_fd(cmd, 2);
@@ -15,7 +15,7 @@ void	print_error(char *cmd, char *str, int code)
 void	print_error_exit(char *cmd,char *val, char *str, int code)
 {
 	g_exit_code = code;
-	ft_putstr_fd("minishell: ", 2);
+	ft_putstr_fd("miniHell: ", 2);
 	if (cmd)
 	{
 		ft_putstr_fd(cmd, 2);

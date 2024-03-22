@@ -1,22 +1,29 @@
 #include "../../minishell.h"
 
-#include <stdbool.h>
-#include <string.h>
+// char *malloc_res(char* str, char *res, int len)
+// {
+// 	len = ft_trlen(str);
+// 	res = malloc(len + 1);
+// 	if (res == NULL)
+// 		return NULL;
+// }
 
-char*	ignore_quotes(char* str) {
+
+char*	ignore_quotes(char* str)
+{
 	int len = strlen(str);
 	char* result = malloc(len + 1);
-	if (result == NULL) {
+	if (result == NULL)
 		return NULL;
-	}
-
 	int i = 0;
 	int j = 0;
-	bool single_quote_found = false;
-	bool double_quote_found = false;
+	int single_quote_found = 0;
+	int double_quote_found = 0;
 
-	while (str[i] != '\0') {
-		if (str[i] == '\'') {
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\'')
+		{
 			if (double_quote_found) {
 				result[j++] = str[i];
 			} else {
@@ -33,7 +40,6 @@ char*	ignore_quotes(char* str) {
 		}
 		i++;
 	}
-
 	result[j] = '\0';
 	return result;
 }

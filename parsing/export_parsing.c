@@ -4,7 +4,7 @@ void	print_exp(char *str, int z)
 {
 	(void)str;
 	g_exit_code = z;
-	printf("bash: export: `%s': not a valid identifier\n", str);
+	printf("miniHell: export: `%s': not a valid identifier\n", str);
 }
 
 int	exp_pars(char *str)

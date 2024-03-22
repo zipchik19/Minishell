@@ -14,7 +14,7 @@ int	main2(int *in_cpy, int *out_cpy, char **str)
 	sig_control(1);
 	*in_cpy = dup(0);
 	*out_cpy = dup(1);
-	*str = readline ("Minishell$> ");
+	*str = readline ("miniHell$> ");
 	ctrl_d_check(*str);
 	if (*str)
 		add_history(*str);
@@ -59,6 +59,7 @@ int	main(int argc, char **argv, char **env)
 			free_toks(&tok);
 		}
 		free(str);
+		//system("leaks minishell");
 	}
 	return (0);
 }
