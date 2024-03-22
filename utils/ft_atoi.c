@@ -31,9 +31,9 @@ long long	ft_atoi(const char *str)
 
 unsigned long long	ft_atoi2(const char *str)
 {
-	unsigned long long	i;
-	unsigned long long	n;
-	unsigned long long	result;
+	long long	i;
+	long long	n;
+	long long	result;
 
 	result = 0;
 	n = 1;
