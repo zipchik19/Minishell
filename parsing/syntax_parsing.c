@@ -30,6 +30,8 @@ int	syntax_pars_3(char *str)
 	int	i;
 
 	i = 0;
+	if (quotes_pars(str))
+		return(1);
 	while (str[i])
 	{
 		if (str[i] == '\'')

@@ -203,6 +203,8 @@ void		ft_execv(char *new_str, char **mx_env, char **str);
 char		*cheack_access(char **path, char **str, char **mx_env);
 char		**t_env_to_matrix(t_env **env);
 void		create_the_paths(char **splited_path, char *new_str);
+int			quotes_pars(char *str);
+
 
 int			ft_strcmp_part2(char *str, char *cmd, int len);
 char		**smart_split1(char *s, char c);

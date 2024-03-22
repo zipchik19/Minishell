@@ -45,4 +45,4 @@ void	cd_cmd(t_env **l_env, char **str)
 			print_error_exit(str[0], str[1], "No such file or directory", 1);
 	}
 	update_pwd(l_env);
-}
+	}
