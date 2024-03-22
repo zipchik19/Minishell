@@ -93,8 +93,8 @@ void		pwd_cmd(t_env **t_env);
 void		only_export(t_env **node);
 void		export_no_args(t_env **env);
 void		cd_cmd(t_env **l_env, char **str);
-void		unset_cmd(t_env **l_env, char *key);
-void		export_cmd(t_env **l_env, char *str);
+void		unset_cmd(t_env **l_env, char *new_key, char *cmd);
+
 void		execve_cmd(t_env **env, char **str);
 void		execve_cmd2(t_env **env, char **str);
 int			exit_cmd(char **c);
@@ -115,7 +115,7 @@ int			sp_trim(char *str);
 int			main_pars(t_toks **token, t_env **env, char **str);
 void		parsing_part_1(char *str, t_toks **token);
 char		*dolars_join(char *str, char *world, int x, int z);
-int			exp_pars(char *str);
+int			exp_pars(char *str, char *val, char *cmd);
 int			pre_parsing(char *str);
 int			syntax_pars_2(char *str);
 int			syntax_pars_3(char *str);
@@ -219,7 +219,7 @@ int			sub_sub_part5(char *rdl, int i, char	**tmp);
 void		do_the_job(t_redirs *token, t_count *len);
 void		print_error_exit(char *cmd,char *val, char *str, int code);
 unsigned long long	ft_atoi2(const char *str);
-
+void	export_cmd(t_env **l_env, char *str, char *cmd);
 
 /////////Inga
 

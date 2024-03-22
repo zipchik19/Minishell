@@ -16,14 +16,14 @@ void	running_part1(t_toks *token, t_env **l_env, t_env *env)
 	else if (ft_strcmp1(token->cmd[0], "export") == 0)
 	{
 		while (token->cmd[j])
-			export_cmd(l_env, token->cmd[j++]);
+			export_cmd(l_env, token->cmd[j++], token->cmd[0]);
 	}
 	else if (ft_strcmp1(token->cmd[0], "cd") == 0)
 		cd_cmd(l_env, token->cmd);
 	else if (ft_strcmp1(token->cmd[0], "echo") == 0)
 		echo_cmd(token->cmd);
 	else if (ft_strcmp1(token->cmd[0], "unset") == 0)
-		unset_cmd(l_env, token->cmd[1]);
+		unset_cmd(l_env, token->cmd[1], token->cmd[0]);
 	else
 		execve_cmd(l_env, token->cmd);
 }

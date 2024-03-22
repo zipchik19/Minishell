@@ -1,6 +1,6 @@
 #include "../../minishell.h"
 
-void	unset_cmd(t_env **l_env, char *new_key)
+void	unset_cmd(t_env **l_env, char *new_key, char *cmd)
 {
 	t_env	*env;
 	t_env	*rtv;
@@ -9,7 +9,7 @@ void	unset_cmd(t_env **l_env, char *new_key)
 	rtv = 0;
 	if (!new_key)
 		return ;
-	if (exp_pars(new_key))
+	if (exp_pars(new_key, NULL, cmd))
 		return ;
 	if (find_key(l_env, new_key))
 	{

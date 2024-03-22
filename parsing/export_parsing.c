@@ -1,13 +1,26 @@
 #include "../../minishell.h"
 
-void	print_exp(char *str, int z)
+void	print_exp(char *str, char *val, char *cmd)
 {
 	(void)str;
-	g_exit_code = z;
-	printf("miniHell: export: `%s': not a valid identifier\n", str);
+	g_exit_code = 1;
+	if(!ft_strcmp1(cmd, "export"))
+	{
+		if (val)
+			printf("miniHell: export: `%s=%s': not a valid identifier\n", str, val);
+		else
+			printf("miniHell: export: `%s': not a valid identifier\n", str);
+	}
+	if(!ft_strcmp1(cmd, "unset"))
+	{
+		if (val)
+			printf("miniHell: unset: `%s=%s': not a valid identifier\n", str, val);
+		else
+			printf("miniHell: unset: `%s': not a valid identifier\n", str);
+	}
 }
 
-int	exp_pars(char *str)
+int	exp_pars(char *str, char *val, char *cmd)
 {
 	int	i;
 	int	len;
@@ -18,10 +31,9 @@ int	exp_pars(char *str)
 	while (i < len)
 	{
 		if ((str[i] && (ft_strcrcmp(METAE, str[i])))
-			|| (str[i] == '+' && i != len - 1)
-			|| (str[i] >= '0' && str[i] <= '9'))
+			|| (str[i] == '+' && i != len - 1) || str[0] == '=')
 		{
-			print_exp(str, 1);
+			print_exp(str, val, cmd);
 			return (1);
 		}
 		i++;

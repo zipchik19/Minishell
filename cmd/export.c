@@ -65,7 +65,7 @@ void	key_not_exist(char **splited, t_env *env, int i, int len)
 	env->next = NULL;
 }
 
-void	export_cmd(t_env **l_env, char *str)
+void	export_cmd(t_env **l_env, char *str, char *cmd)
 {
 	int		i;
 	t_env	*env;
@@ -75,7 +75,7 @@ void	export_cmd(t_env **l_env, char *str)
 	len = ft_strlen(str);
 	i = ft_int_strchr(str, '=');
 	splited = split_export(str);
-	if (exp_pars(splited[0]))
+	if (exp_pars(splited[0], splited[1], cmd))
 	{
 		free_envs(splited);
 		return ;
