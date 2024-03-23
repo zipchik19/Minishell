@@ -1,22 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_parsing.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 11:08:36 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 11:08:39 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	print_exp(char *str, char *val, char *cmd)
 {
 	(void)str;
 	g_exit_code = 1;
-	if(!ft_strcmp1(cmd, "export"))
+	if (!ft_strcmp1(cmd, "export"))
 	{
 		if (val)
-			printf("miniHell: export: `%s=%s': not a valid identifier\n", str, val);
+			printf("miniHell: export: `%s=%s': not a valid identifier\n", \
+					str, val);
 		else
-			printf("miniHell: export: `%s': not a valid identifier\n", str);
+			printf("miniHell: export: `%s': not a valid identifier\n", \
+					str);
 	}
-	if(!ft_strcmp1(cmd, "unset"))
+	if (!ft_strcmp1(cmd, "unset"))
 	{
 		if (val)
-			printf("miniHell: unset: `%s=%s': not a valid identifier\n", str, val);
+			printf("miniHell: unset: `%s=%s': not a valid identifier\n", \
+					str, val);
 		else
-			printf("miniHell: unset: `%s': not a valid identifier\n", str);
+			printf("miniHell: unset: `%s': not a valid identifier\n", \
+					str);
 	}
 }
 
@@ -31,7 +47,8 @@ int	exp_pars(char *str, char *val, char *cmd)
 	while (i < len)
 	{
 		if ((str[i] && (ft_strcrcmp(METAE, str[i])))
-			|| (str[i] == '+' && i != len - 1) || str[0] == '=' || (str[0] >= '0' && str[0] <= '9'))
+			|| (str[i] == '+' && i != len - 1) || str[0] == '=' \
+			|| (str[0] >= '0' && str[0] <= '9'))
 		{
 			print_exp(str, val, cmd);
 			return (1);

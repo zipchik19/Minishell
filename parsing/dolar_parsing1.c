@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dolar_parsing1.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 10:58:19 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:58:32 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	end_of_1quote(char *str, int i)
@@ -20,16 +32,19 @@ void	dolar_parsss(char **str, int i, int x)
 {
 	char	*word;
 	char	*back;
-	int		len;
 
 	word = ft_substr(*str, x, i - x);
 	back = getenv(word);
 	if (back)
+	{
 		*str = dolars_join(*str, back, x, i - x + 1);
+		free(word);
+	}
 	else
+	{
+		free(back);
 		*str = dolars_join(*str, "", 0, 0);
-	len = ft_strlen(str[0]);
-	free(word);
+	}
 }
 
 void	dolar_pars(char **str)

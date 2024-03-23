@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lib.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 11:28:23 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 11:29:32 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	ft_strcrcmp(char *str, char c)
@@ -66,6 +78,7 @@ int	ft_int_strchr(char *str, char c)
 	}
 	return (0);
 }
+
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char	*d;

@@ -1,25 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tok_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 11:06:51 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 11:26:05 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	tf_norm(t_toks **tok)
 {
-    t_toks *tk = *tok;
-    while (tk)
-    {
-        int i = 0;
-        while (tk->cmd && tk->cmd[i])
-        {
-            char* modified_cmd = ignore_quotes(tk->cmd[i]);
-            if (modified_cmd != NULL)
-			{
-                free(tk->cmd[i]);
-                tk->cmd[i] = modified_cmd;
-            }
-            i++;
-        }
-        tk = tk->next;
-    }
-}
+	t_toks	*tk;
+	int		i;
+	char	*modified_cmd;
 
+	tk = *tok;
+	while (tk)
+	{
+		i = 0;
+		while (tk->cmd && tk->cmd[i])
+		{
+			modified_cmd = ignore_quotes(tk->cmd[i]);
+			if (modified_cmd != NULL)
+			{
+				free(tk->cmd[i]);
+				tk->cmd[i] = modified_cmd;
+			}
+			i++;
+		}
+		tk = tk->next;
+	}
+}
 
 int	pipe_count(char *str)
 {

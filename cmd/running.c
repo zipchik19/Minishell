@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   running.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 10:54:24 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:54:30 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	running_part1(t_toks *token, t_env **l_env, t_env *env)
@@ -31,7 +43,7 @@ void	running_part1(t_toks *token, t_env **l_env, t_env *env)
 void	running(t_toks **tk, t_env **l_env)
 {
 	t_env		*env;
-	t_toks	*token;
+	t_toks		*token;
 	t_count		*all_count;
 	int			j;
 

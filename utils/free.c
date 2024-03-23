@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 11:27:33 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 11:27:34 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	free_envs(char **env_split)
@@ -34,7 +46,7 @@ void	free_2(t_toks **token)
 void	free_toks(t_toks **token)
 {
 	int			i;
-	t_toks	*next;
+	t_toks		*next;
 
 	i = 0;
 	while ((*token))

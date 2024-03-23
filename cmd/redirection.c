@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   redirection.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 10:53:30 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:53:32 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	redirection_output(char *file, int i)
@@ -40,7 +52,7 @@ void	redirection_input(char *file, int i)
 	fd = open(file, O_RDONLY, 0644);
 	if (fd < 0)
 	{
-		print_error(NULL, "syntax error near unexpected token `newline", 258);
+		print_error(NULL, MSG, 258);
 		close(fd);
 		return ;
 	}

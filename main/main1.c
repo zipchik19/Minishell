@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 10:56:20 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:56:50 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	g_exit_code = 0;
@@ -51,7 +63,6 @@ int	main(int argc, char **argv, char **env)
 	{
 		if (main2(&in_cpy, &out_cpy, &str))
 			break ;
-
 		if (sp_trim(str))
 		{
 			main_pars(&tok, &s_env, &str);
@@ -59,7 +70,6 @@ int	main(int argc, char **argv, char **env)
 			main4(&in_cpy, &out_cpy);
 			free_toks(&tok);
 		}
-		//system("leaks minishell");
 		free(str);
 	}
 	return (0);

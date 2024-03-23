@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipe2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 10:52:29 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:53:17 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	processing_status(int size)
@@ -28,7 +40,7 @@ void	running_pipe(t_toks **token, t_env **env)
 {
 	int			(*fd)[2];
 	pid_t		*child;
-	t_toks	*tk;
+	t_toks		*tk;
 
 	tk = *token;
 	fd = ft_calloc(sizeof(int *), (*token)->token_count - 1);
@@ -67,7 +79,6 @@ void	run_p(pid_t *child, t_toks **token, t_env **env, int (*fd)[2])
 		i++;
 		(*token) = (*token)->next;
 	}
-		//("leaks minishell");
 }
 
 void	processing_status_pipe(pid_t *a, int size)

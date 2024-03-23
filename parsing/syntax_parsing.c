@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   syntax_parsing.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 11:07:03 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 11:22:41 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	syntax_pars_2(char *str)
@@ -19,7 +31,7 @@ int	syntax_pars_2(char *str)
 	}
 	if (flg == 0)
 	{
-		print_error(NULL, "syntax error near unexpected token `newline", 258);
+		print_error(NULL, MSG, 258);
 		return (1);
 	}
 	return (0);
@@ -31,7 +43,7 @@ int	syntax_pars_3(char *str)
 
 	i = 0;
 	if (quotes_pars(str))
-		return(1);
+		return (1);
 	while (str[i])
 	{
 		if (str[i] == '\'')
@@ -45,8 +57,7 @@ int	syntax_pars_3(char *str)
 				i++;
 			if (str[i] == '|')
 			{
-				print_error(NULL, "syntax error nearunexpected token `newline",
-					258);
+				print_error(NULL, MSG, 258);
 				return (1);
 			}
 		}
@@ -60,7 +71,7 @@ int	syntax_pars_1(char c)
 	if (c == '|' || c == '&' || c == ';')
 	{
 		g_exit_code = 2;
-		print_error(NULL, "syntax error near unexpected token `newline", 258);
+		print_error(NULL, MSG, 258);
 		return (1);
 	}
 	return (0);

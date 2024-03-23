@@ -1,17 +1,8 @@
 #include "../../minishell.h"
 
-// char *malloc_res(char* str, char *res, int len)
-// {
-// 	len = ft_trlen(str);
-// 	res = malloc(len + 1);
-// 	if (res == NULL)
-// 		return NULL;
-// }
-
-
-char*	ignore_quotes(char* str)
+char	*ignore_quotes(char* str)
 {
-	int len = strlen(str);
+	int	len = strlen(str);
 	char* result = malloc(len + 1);
 	if (result == NULL)
 		return NULL;

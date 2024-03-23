@@ -6,7 +6,7 @@
 /*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 08:54:34 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/23 10:05:00 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:51:10 by nbadalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_nums(char	*c)
 	return (0);
 }
 
-void norm_exit_cmd(char *c)
+void	norm_exit_cmd(char *c)
 {
 	if (!c)
 	{
