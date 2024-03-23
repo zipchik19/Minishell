@@ -1,40 +1,58 @@
 #include "../../minishell.h"
 
-char	*ignore_quotes(char* str)
+int handle_quote(char c, int *single_quote_found, int *double_quote_found)
 {
-	int	len = strlen(str);
-	char* result = malloc(len + 1);
-	if (result == NULL)
-		return NULL;
-	int i = 0;
-	int j = 0;
-	int single_quote_found = 0;
-	int double_quote_found = 0;
-
-	while (str[i] != '\0')
+    if (c == '\'')
 	{
-		if (str[i] == '\'')
+        if (!*double_quote_found)
 		{
-			if (double_quote_found) {
-				result[j++] = str[i];
-			} else {
-				single_quote_found = !single_quote_found;
-			}
-		} else if (str[i] == '\"') {
-			if (single_quote_found) {
-				result[j++] = str[i];
-			} else {
-				double_quote_found = !double_quote_found;
-			}
-		} else {
-			result[j++] = str[i];
-		}
-		i++;
-	}
-	result[j] = '\0';
-	return result;
+            *single_quote_found = !*single_quote_found;
+            return 0;
+        }
+    }
+	else if (c == '\"')
+	{
+        if (!*single_quote_found)
+		{
+            *double_quote_found = !*double_quote_found;
+            return 0;
+        }
+    }
+    return 1;
 }
 
+void process_quotes_and_copy(char* str, char* result, \
+		int *single_quote_found, int *double_quote_found)
+{
+    int i = 0;
+    int j = 0;
+
+    while (str[i] != '\0')
+	{
+        if (handle_quote(str[i], single_quote_found, double_quote_found))
+            result[j++] = str[i];
+        i++;
+    }
+    result[j] = '\0';
+}
+
+char* ignore_quotes(char* str)
+{
+    int len;
+    char* result;
+	int single_quote_found;
+    int double_quote_found;
+
+	len = strlen(str);
+	result = (char*) malloc(len + 1);
+	single_quote_found = 0;
+	double_quote_found = 0;
+    if (result == NULL)
+        return NULL;
+    process_quotes_and_copy(str, result, \
+		&single_quote_found, &double_quote_found);
+	return result;
+}
 
 void	other_smart_split(t_toks **tok)
 {

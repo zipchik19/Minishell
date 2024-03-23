@@ -89,7 +89,7 @@ char				**smart_split(char *s, char c);
 char				*ft_cat_str(char *s);
 int					ft_isdigit(char *str);
 void				ft_putstr_fd(char *s, int fd);
-char				*ignore_quotes(char *str);
+//////////////////////char				*ignore_quotes(char *str);
 void				*ft_calloc(int c, int s);
 int					ft_strlen(char *str);
 int					ft_strcrcmp(char *str, char c);
@@ -235,6 +235,7 @@ void				do_the_job(t_redirs *token, t_count *len);
 void				print_error_exit(char *cmd, char *val, char *str, int code);
 unsigned long long	ft_atoi2(const char *str);
 void				export_cmd(t_env **l_env, char *str, char *cmd);
-void				running_part1(t_toks *token, t_env **l_env, t_env *env);\
+void				running_part1(t_toks *token, t_env **l_env, t_env *env);
+char* 				ignore_quotes(char* str);
 
 #endif
