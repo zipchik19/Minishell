@@ -6,10 +6,10 @@ char	*ignore_quotes(char* str)
 	char* result = malloc(len + 1);
 	if (result == NULL)
 		return NULL;
-	// int i = 0;
-	// int j = 0;
-	// int single_quote_found = 0;
-	// int double_quote_found = 0;
+	int i = 0;
+	int j = 0;
+	int single_quote_found = 0;
+	int double_quote_found = 0;
 
 	while (str[i] != '\0')
 	{
