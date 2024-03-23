@@ -6,7 +6,7 @@
 /*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:38:51 by nbadalia          #+#    #+#             */
-/*   Updated: 2024/03/23 10:50:36 by nbadalia         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:31:50 by nbadalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,6 +236,6 @@ void				print_error_exit(char *cmd, char *val, char *str, int code);
 unsigned long long	ft_atoi2(const char *str);
 void				export_cmd(t_env **l_env, char *str, char *cmd);
 void				running_part1(t_toks *token, t_env **l_env, t_env *env);
-char* 				ignore_quotes(char* str);
+char				*ignore_quotes(char *str);
 
 #endif
