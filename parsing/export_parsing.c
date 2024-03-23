@@ -31,7 +31,7 @@ int	exp_pars(char *str, char *val, char *cmd)
 	while (i < len)
 	{
 		if ((str[i] && (ft_strcrcmp(METAE, str[i])))
-			|| (str[i] == '+' && i != len - 1) || str[0] == '=')
+			|| (str[i] == '+' && i != len - 1) || str[0] == '=' || (str[0] >= '0' && str[0] <= '9'))
 		{
 			print_exp(str, val, cmd);
 			return (1);

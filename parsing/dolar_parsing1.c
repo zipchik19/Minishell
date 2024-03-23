@@ -24,7 +24,10 @@ void	dolar_parsss(char **str, int i, int x)
 
 	word = ft_substr(*str, x, i - x);
 	back = getenv(word);
-	*str = dolars_join(*str, back, x, i - x + 1);
+	if (back)
+		*str = dolars_join(*str, back, x, i - x + 1);
+	else
+		*str = dolars_join(*str, "", 0, 0);
 	len = ft_strlen(str[0]);
 	free(word);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   call_herdoc.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 08:49:58 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 08:51:07 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	call_heredoc_part2(char *del, int len)
@@ -12,7 +24,7 @@ int	call_heredoc_part2(char *del, int len)
 
 void	call_heredoc(t_toks **tk, int len)
 {
-	t_toks	*token;
+	t_toks		*token;
 	t_redirs	*red;
 
 	token = *tk;

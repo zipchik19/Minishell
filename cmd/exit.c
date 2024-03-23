@@ -1,38 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 08:54:34 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 10:05:00 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
-int check_nums(char *c)
+int	check_nums(char	*c)
 {
-	long long nb;
-	
+	long long	nb;
+
 	nb = ft_atoi2(c);
-	if(ft_strcmp(c, "-9223372036854775808"))
-		return(1);
-	if(ft_strlen(c) <= 19)
+	if (ft_strcmp(c, "-9223372036854775808"))
+		return (1);
+	if (ft_strlen(c) <= 19)
 	{
-		if(nb < 0)
+		if (nb < 0)
 			nb = -1 * ft_atoi(c);
-		if (nb >=0 && nb <= 9223372036854775807)
-			return(1);
-		return(0);
+		if (nb >= 0 && nb <= 9223372036854775807)
+			return (1);
+		return (0);
 	}
-	return(0);
+	return (0);
 }
 
-
-int	exit_cmd(char **c)
+void norm_exit_cmd(char *c)
 {
-	char		*str;
-	unsigned long long nb;
-
-	if (!c[1])
+	if (!c)
 	{
 		printf("exit\n");
 		exit(0);
 	}
-	if(ft_atoi(c[1]) < 0)
+}
+
+int	exit_cmd(char **c)
+{
+	char				*str;
+	unsigned long long	nb;
+
+	norm_exit_cmd(c[1]);
+	if (ft_atoi(c[1]) < 0)
 		nb = -1 * ft_atoi(c[1]);
 	nb = ft_atoi(c[1]);
-	printf("%d\n", check_nums("9223372036854775807135813514351"));
 	if (!ft_isdigit(c[1]) || (c[2] && !ft_isdigit(c[1])) || (!check_nums(c[1])))
 	{
 		printf("exit\n");
@@ -49,6 +64,7 @@ int	exit_cmd(char **c)
 	exit_2(str);
 	return (0);
 }
+
 void	exit_2(char *str)
 {
 	long long	num;

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   call_redirect.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 08:51:27 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 08:52:21 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	call_redirections_part2(t_toks **tk, t_count *len)
 {	
 	t_redirs	*red;
-	t_toks	*token;
+	t_toks		*token;
 
 	token = *tk;
 	red = token->head_redct;
@@ -28,7 +40,7 @@ int	call_redirections_part2(t_toks **tk, t_count *len)
 void	call_redirections(t_toks **tk)
 {
 	t_redirs	*red;
-	t_toks	*token;
+	t_toks		*token;
 	t_count		*len;
 	int			i;
 
@@ -56,7 +68,7 @@ void	call_redirections(t_toks **tk)
 void	call_redirections6(t_toks **tk, t_count *len)
 {
 	t_redirs	*red;
-	t_toks	*token;
+	t_toks		*token;
 	int			i;
 
 	token = *tk;
@@ -96,7 +108,7 @@ int	count_redirect_part2(t_toks *token, t_count **count)
 t_count	*count_redirect(t_toks **tk)
 {	
 	t_count		*count;
-	t_toks	*token;
+	t_toks		*token;
 	t_redirs	*red1;
 
 	token = *tk;

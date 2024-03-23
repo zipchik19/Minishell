@@ -22,7 +22,7 @@ topdir = ..
 srcdir = .
 
 
-prefix = /Users/nbadalia/Desktop/Minishell/readline
+prefix = /Users/nbadalia/Desktop/newMinsh/readline
 
 datarootdir = ${prefix}/share
 
@@ -49,7 +49,7 @@ RM = rm -f
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 
-BUILD_DIR = /Users/nbadalia/Desktop/Minishell/readline-8.1
+BUILD_DIR = /Users/nbadalia/Desktop/newMinsh/readline-8.1
 TEXINPUTDIR = $(srcdir)
 
 MAKEINFO    = LANGUAGE= makeinfo

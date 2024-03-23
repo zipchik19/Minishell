@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbadalia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 08:52:38 by nbadalia          #+#    #+#             */
+/*   Updated: 2024/03/23 08:53:03 by nbadalia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 void	update_oldpwd(t_env **l_env)
@@ -45,4 +57,4 @@ void	cd_cmd(t_env **l_env, char **str)
 			print_error_exit(str[0], str[1], "No such file or directory", 1);
 	}
 	update_pwd(l_env);
-	}
+}

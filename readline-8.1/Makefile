@@ -31,7 +31,7 @@ PACKAGE_TARNAME = readline
 srcdir = .
 
 top_srcdir = .
-BUILD_DIR = /Users/nbadalia/Desktop/Minishell/readline-8.1
+BUILD_DIR = /Users/nbadalia/Desktop/newMinsh/readline-8.1
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -48,7 +48,7 @@ MV = mv
 
 SHELL = /bin/sh
 
-prefix = /Users/nbadalia/Desktop/Minishell/readline
+prefix = /Users/nbadalia/Desktop/newMinsh/readline
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
