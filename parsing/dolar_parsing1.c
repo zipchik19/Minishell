@@ -43,7 +43,7 @@ void	dolar_parsss(char **str, int i, int x)
 	else
 	{
 		free(back);
-		*str = dolars_join(*str, "", 0, 0);
+		*str = dolars_join(*str, "                          ", 0, 0);
 	}
 }
 
